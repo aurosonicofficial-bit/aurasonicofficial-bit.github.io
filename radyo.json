@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-09T12:04:36Z",
+  "updated": "2026-09-10T07:08:17Z",
   "note": "VPS2 tarafindan otomatik guncellenir (aura-site-radyo.timer).",
   "radios": [
     {
@@ -8,7 +8,7 @@
         "tr": "Global Hits",
         "en": "Global Hits"
       },
-      "id": "35ln7QKEvOs"
+      "id": "fwTY7c7v6Ss"
     },
     {
       "k": "turkce",
@@ -16,7 +16,7 @@
         "tr": "Türkçe",
         "en": "Turkish"
       },
-      "id": "v7FBzGEgxwE"
+      "id": "l5bhS6zeOGs"
     },
     {
       "k": "latino",
@@ -24,7 +24,7 @@
         "tr": "Latino",
         "en": "Latino"
       },
-      "id": "of9HAAG1kec"
+      "id": "DrBVIZPojck"
     },
     {
       "k": "phonk",
@@ -32,7 +32,7 @@
         "tr": "Global Slow",
         "en": "Global Slow"
       },
-      "id": "TvpgW4qkWaw"
+      "id": "3cp0IJjSho8"
     }
   ]
 }
