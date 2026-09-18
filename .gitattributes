@@ -1,0 +1,5 @@
+# TELIF KANIT PAKETI — satir sonu donusumu YASAK.
+# Yayinlanan dosyanin SHA-256'si Bitcoin blok 966983'e muhurlu;
+# tek bayt degisirse "ots verify" coker ve kanit gecersiz gorunur.
+telif/** -text
+*.ots -text binary
