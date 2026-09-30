@@ -95,11 +95,11 @@ footer{margin-top:80px;background:var(--ink);color:rgba(244,241,235,.7);padding:
 
 <div class="intro">
   <p class="lead" data-i18n="lead">Dört radyo, tek çatı. Gece yarısından şafağa, kesintisiz.</p>
-  <p data-i18n="p1">Global Hits, Türkçe, Latino ve Phonk — dört ayrı kanal, 7 gün 24 saat canlı. Yukarıdan kanalını seç.</p>
+  <p data-i18n="p1">Global Hits, Türkçe, Latino ve Global Slow — dört ayrı kanal, 7 gün 24 saat canlı. Yukarıdan kanalını seç.</p>
 </div>
 
 <div class="tags">
-  <span data-i18n="t1">Global Hits</span><span data-i18n="t2">Türkçe</span><span data-i18n="t3">Latino</span><span data-i18n="t4">Phonk</span><span data-i18n="t5">7/24 Canlı</span>
+  <span data-i18n="t1">Global Hits</span><span data-i18n="t2">Türkçe</span><span data-i18n="t3">Latino</span><span data-i18n="t4">Global Slow</span><span data-i18n="t5">7/24 Canlı</span>
 </div>
 
 <div class="alt">
@@ -128,7 +128,7 @@ footer{margin-top:80px;background:var(--ink);color:rgba(244,241,235,.7);padding:
 </nav><div class="drawer-foot">AURA SONIC OFFICIAL GROUP<br>London · İzmir</div></aside>
 
 <script>
-const T={tr:{livetag:"Canlı",crumb:"7/24 Yayın",title:"Radyo",cue:"Kanala tıkla — canlı yayın <b>YouTube</b>'da açılır.",lead:"Dört radyo, tek çatı. Gece yarısından şafağa, kesintisiz.",p1:"Global Hits, Türkçe, Latino ve Phonk — kataloğumuzdan seçilmiş parçalarla dört ayrı kanal, 7 gün 24 saat canlı. Reklamsız, duraksız — sadece müzik. Yukarıdan dinlemek istediğin kanalı seç.",t1:"Global Hits",t2:"Türkçe",t3:"Latino",t4:"Phonk",t5:"7/24 Canlı",ytbtn:"Tüm Radyoları YouTube'da Aç",m_shop:"Mağaza",m_home:"Ana Sayfa",m_about:"Hakkımızda",m_artists:"Sanatçılarımız",m_vision:"Vizyonumuz",m_radio:"Radyo",m_forartists:"Sanatçılar İçin",m_rights:"Telif",m_contact:"İletişim",ftag:"Bağımsız müzik şirketi"},en:{livetag:"Live",crumb:"24/7 Stream",title:"Radio",cue:"Tap a channel — the live stream opens on <b>YouTube</b>.",lead:"Four radios, one house. From midnight to dawn, nonstop.",p1:"Global Hits, Turkish, Latino and Phonk — four live channels of hand-picked tracks from our catalog, 24/7. No ads, no breaks — just music. Pick your channel above.",t1:"Global Hits",t2:"Turkish",t3:"Latino",t4:"Phonk",t5:"24/7 Live",ytbtn:"Open all radios on YouTube",m_shop:"Store",m_home:"Home",m_about:"About",m_artists:"Our Artists",m_vision:"Our Vision",m_radio:"Radio",m_forartists:"For Artists",m_rights:"Copyright",m_contact:"Contact",ftag:"Independent music company"}};
+const T={tr:{livetag:"Canlı",crumb:"7/24 Yayın",title:"Radyo",cue:"Kanala tıkla — canlı yayın <b>YouTube</b>'da açılır.",lead:"Dört radyo, tek çatı. Gece yarısından şafağa, kesintisiz.",p1:"Global Hits, Türkçe, Latino ve Global Slow — kataloğumuzdan seçilmiş parçalarla dört ayrı kanal, 7 gün 24 saat canlı, kesintisiz müzik. Yukarıdan dinlemek istediğin kanalı seç.",t1:"Global Hits",t2:"Türkçe",t3:"Latino",t4:"Global Slow",t5:"7/24 Canlı",ytbtn:"Tüm Radyoları YouTube'da Aç",m_shop:"Mağaza",m_home:"Ana Sayfa",m_about:"Hakkımızda",m_artists:"Sanatçılarımız",m_vision:"Vizyonumuz",m_radio:"Radyo",m_forartists:"Sanatçılar İçin",m_rights:"Telif",m_contact:"İletişim",ftag:"Bağımsız müzik şirketi"},en:{livetag:"Live",crumb:"24/7 Stream",title:"Radio",cue:"Tap a channel — the live stream opens on <b>YouTube</b>.",lead:"Four radios, one house. From midnight to dawn, nonstop.",p1:"Global Hits, Turkish, Latino and Global Slow — four live channels of hand-picked tracks from our catalog, 24/7, nonstop music. Pick your channel above.",t1:"Global Hits",t2:"Turkish",t3:"Latino",t4:"Global Slow",t5:"24/7 Live",ytbtn:"Open all radios on YouTube",m_shop:"Store",m_home:"Home",m_about:"About",m_artists:"Our Artists",m_vision:"Our Vision",m_radio:"Radio",m_forartists:"For Artists",m_rights:"Copyright",m_contact:"Contact",ftag:"Independent music company"}};
 let lang=localStorage.getItem('asLang')||'tr';
 function setLang(l){lang=l;localStorage.setItem('asLang',l);document.documentElement.lang=l;document.querySelectorAll('[data-i18n]').forEach(e=>{if(T[l][e.dataset.i18n])e.innerHTML=T[l][e.dataset.i18n]});document.querySelectorAll('.lang span').forEach(s=>s.classList.toggle('on',s.dataset.lang===l))}
 const dr=document.getElementById('drawer'),ov=document.getElementById('ov');
@@ -143,7 +143,7 @@ const FALLBACK=[
   {k:"global",n:{tr:"Global Hits",en:"Global Hits"},id:"F2BgK8uMJqI"},
   {k:"turkce",n:{tr:"Türkçe",en:"Turkish"},id:"CJRU5Xl2hGo"},
   {k:"latino",n:{tr:"Latino",en:"Latino"},id:"LZcRQh38kf4"},
-  {k:"phonk", n:{tr:"Phonk",en:"Phonk"},id:"SvKmpk38SDY"}
+  {k:"phonk", n:{tr:"Global Slow",en:"Global Slow"},id:"HMLD7IIDmWQ"}
 ];
 let CH=FALLBACK, lang0=(typeof lang!=='undefined'?lang:'tr');
 const RG=document.getElementById('rgrid');
