@@ -128,11 +128,17 @@
       if (o < 1) setTimeout(adimla, 50);
     })();
   }
+  function fonAcik() { return !!P && !P.muzikKapali && (ses.paused || ses.ended || ses.muted); }
   function fonGuncelle() {                                    // şarkı çalarken ya da müzik kapalıyken fon susar
     if (!P) return;
-    var acik = !P.muzikKapali && (ses.paused || ses.ended || ses.muted);
-    if (acik && fon.paused) fon.play().catch(function () {});
-    fonAyarla(acik ? K.muzik.ses : 0);
+    var acik = fonAcik();
+    if (acik) {
+      if (fon.paused && fon.src) fon.play().catch(function () {});
+      fonAyarla(K.muzik.ses);
+    } else {                                                  // kıs, sonra DURAKLAT: iPhone ses düzeyini yok sayar, yalnız duraklatma susturur
+      fonAyarla(0);
+      setTimeout(function () { if (!fonAcik()) fon.pause(); }, 760);
+    }
     $("#sesDugme").textContent = P.muzikKapali ? "🔇" : "♪";
     $("#sesDugme").setAttribute("aria-label", y("muzik"));
   }
@@ -182,6 +188,12 @@
     fonGuncelle();
   }
   function sesiDurdur() { ses.pause(); calan = null; sesSimge(); }
+  // güvence: tarayıcı ilk çalmayı reddettiyse ya da müzik bir sebeple durduysa, sonraki herhangi bir dokunuş yeniden başlatır
+  document.addEventListener("pointerdown", function () {
+    if (!P || !fonAcik()) return;
+    if (!fon.src) { fon.src = K.muzik.dosya; }
+    if (fon.paused) { fon.play().catch(function () {}); fonAyarla(K.muzik.ses); }
+  }, true);
 
   // ── gömülü player: bu sanatçıda açılan şarkılar ──
   function playerAc() {
