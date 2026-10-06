@@ -4,4 +4,5 @@
   <url><loc>https://www.aurasonicofficial.com/radyo/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.aurasonicofficial.com/odeme/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://www.aurasonicofficial.com/mektup.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.aurasonicofficial.com/kosullar.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
