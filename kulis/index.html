@@ -5,31 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0c0c0e">
 <meta name="robots" content="noindex">
-<meta name="description" content="Bir plak şirketinde ilk günün. Üç sanatçı, gece yarısına kadar üç şarkı. 10 dakikalık seçmeli hikâye — içinde gerçek şarkılar çalıyor.">
+<meta name="description" content="Bu gece kimin kulisine girmek istiyorsun? Dört sanatçı, dört gece. Seçimlerin geceyi değiştirir; içinde gerçek şarkılar çalar.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.aurasonicofficial.com/kulis/">
-<meta property="og:title" content="KULİS — Bir Aura Sonic hikâyesi">
-<meta property="og:description" content="Bir plak şirketinde ilk günün. Üç sanatçı, gece yarısına kadar üç şarkı. Biri hiç cevap vermez.">
-<meta property="og:image" content="https://www.aurasonicofficial.com/kulis/kapak.jpg">
+<meta property="og:title" content="KULİS — Aura Sonic">
+<meta property="og:description" content="Sanatçıyı sadece dinleme. Dünyasına gir. Dört sanatçı, dört gece; seçimlerin geceyi değiştirir.">
+<meta property="og:image" content="https://www.aurasonicofficial.com/kulis/kapak.jpg?v=202610062353">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/aura-logo-gold.png">
-<title>Backstage — Aura Sonic</title>
-<link rel="stylesheet" href="stil.css?v=2">
+<title>Kulis — Aura Sonic</title>
+<link rel="stylesheet" href="stil.css?v=202610062353">
 </head>
 <body>
 <main id="uyg">
 
   <!-- açılış -->
   <section id="acilis" class="ekran">
+    <div class="acilis-gorsel"><img src="medya/askin_kart.jpg" alt=""></div>
     <div class="acilis-ic">
       <p class="marka">AURA SONIC</p>
       <h1 id="oyunAdi"></h1>
       <p id="altbaslik" class="altbaslik"></p>
-      <div class="yuzler" id="yuzler"></div>
-      <p id="bolumAdi" class="bolum"></p>
-      <p id="tanitim" class="tanitim"></p>
 
       <div class="dil" role="group" aria-label="Language / Dil">
         <button type="button" data-dil="tr">Türkçe</button>
@@ -40,39 +38,79 @@
         <input id="ad" type="text" maxlength="16" autocomplete="off" autocapitalize="words" spellcheck="false">
       </label>
       <button type="button" id="basla" class="ana"></button>
-      <button type="button" id="surdur" class="ikincil" hidden></button>
       <p id="sesNotu" class="not"></p>
       <p id="sayimNotu" class="not kucuk" hidden></p>
     </div>
   </section>
 
-  <!-- oyun -->
+  <!-- sanatçı seçimi -->
+  <section id="secim" class="ekran" hidden>
+    <header class="secim-ust">
+      <p class="marka">AURA SONIC · <span id="secimAd"></span></p>
+      <h2 id="secimSoru"></h2>
+    </header>
+    <div id="kartlarSecim" class="dunyalar"></div>
+  </section>
+
+  <!-- oyun: tam ekran sahne -->
   <section id="oyun" class="ekran" hidden>
+    <div id="arka" class="arka"><img id="arkaA" alt=""><img id="arkaB" alt=""></div>
+    <div class="karart"></div>
+    <div id="kilitOrtu" class="kilit-ortu" hidden><b>🔒</b><span id="kilitYazi"></span></div>
+
     <header id="ust">
+      <button type="button" id="geriDugme" class="hap geri">‹</button>
       <div id="ustAvatar" class="avatar"></div>
       <div class="ust-yazi">
         <div id="ustAd" class="ust-ad"></div>
         <div id="ustDurum" class="ust-durum"></div>
       </div>
-      <button type="button" id="gorevDugme" class="gorev-dugme" aria-expanded="false"></button>
+      <button type="button" id="sesDugme" class="hap"></button>
+      <span id="elmas" class="hap"></span>
+      <button type="button" id="gorevDugme" class="hap" aria-expanded="false"></button>
     </header>
     <div id="gorevPanel" class="gorev-panel" hidden></div>
-    <div id="akis" class="akis"></div>
-    <div id="alt" class="alt"></div>
-    <button type="button" id="bildirim" class="bildirim" hidden></button>
+    <div id="playerPanel" class="gorev-panel player" hidden></div>
+
+    <div id="calan" class="calan" hidden>
+      <button type="button" id="calDugme" class="cal"></button>
+      <button type="button" id="calYazi" class="cal-yazi"></button>
+      <i id="calCubuk"></i>
+    </div>
+    <div id="rozet" class="rozet" hidden></div>
+    <div id="kartlar" class="kartlar"></div>
+
+    <div id="alt" class="alt">
+      <div id="kutu" class="kutu" hidden>
+        <div id="kutuAd" class="kutu-ad"></div>
+        <div id="kutuMetin" class="kutu-metin"></div>
+        <div id="kutuIpucu" class="kutu-ipucu"></div>
+      </div>
+      <form id="yaz" class="yaz" hidden autocomplete="off">
+        <input id="yazi" type="text" maxlength="200" enterkeyhint="send">
+        <button type="submit" id="yazGonder" class="gonder">➤</button>
+      </form>
+      <div id="secenekler" class="secenekler"></div>
+    </div>
   </section>
 
-  <!-- bölüm sonu -->
+  <!-- dünyaya giriş -->
+  <section id="sahne" class="ekran sahne" hidden></section>
+
+  <!-- son -->
   <section id="son" class="ekran" hidden>
     <div class="son-ic" id="sonIc"></div>
   </section>
-
-  <div id="buyuk" class="buyuk" hidden><img alt=""></div>
 </main>
 
 <script>window.AYAR = { olcum: "https://panel.aurasonicofficial.com/kulis/say" };</script>
-<script src="cekirdek.js?v=2"></script>
-<script src="bolum1.js?v=2"></script>
-<script src="motor.js?v=2"></script>
+<script src="cekirdek.js?v=202610062353"></script>
+<script src="kulis.js?v=202610062353"></script>
+<script src="dunya_askin.js?v=202610062353"></script>
+<script src="dunya_kael.js?v=202610062353"></script>
+<script src="dunya_maria.js?v=202610062353"></script>
+<script src="dunya_jaxen.js?v=202610062353"></script>
+<script src="kareler.js?v=202610062353"></script>
+<script src="motor.js?v=202610062353"></script>
 </body>
 </html>
