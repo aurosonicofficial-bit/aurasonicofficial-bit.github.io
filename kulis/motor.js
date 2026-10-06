@@ -260,7 +260,11 @@
     return (liste && a.m && liste[C.anahtar(a.m.en)]) || null;
   }
   function yeniKare(k, ozel) {                                // sanatçının her cümlesinde: cümlenin karesi ya da sıradaki poz + yeni kadraj
-    if (ozel) { D.tut = false; kadrajNo = 0; kilitKaldir(); arkaKoy(ozel); return bekle(260); }
+    if (ozel) {                                               // aynı kare zaten ekrandaysa kadraj değişir; değilse kare tam kadrajıyla gelir
+      D.tut = false;
+      if (D.arka === ozel) { kadraj(); return Promise.resolve(); }
+      kadrajNo = 0; kilitKaldir(); arkaKoy(ozel); return bekle(260);
+    }
     if (D.tut) { D.tut = false; kadraj(); return Promise.resolve(); }
     kadrajNo++;
     if (dondur(k)) return bekle(260);

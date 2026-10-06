@@ -31,8 +31,8 @@
     cumle: L("The studio, the night before the concert.", "Konserden önceki gece, stüdyo."),
     bolumAdi: L("Chapter 1 — I Wrote You Into the Night", "Bölüm 1 — Geceye Yazdım Seni"),
     renk: "#d2a94e",
-    kart: "medya/askin_kart.jpg",
-    avatar: "medya/askin_av.jpg",
+    kart: "medya/askin_kart2.jpg",
+    avatar: "medya/askin_av2.jpg",
     baslangic: "giris",
     baslangicElmas: 1,
     kilitBedeli: 1,
@@ -60,9 +60,9 @@
     },
 
     kanallar: {
-      askin: { ad: L("Aşkın Öztürk", "Aşkın Öztürk"), avatar: "medya/askin_av.jpg", renk: "#d2a94e", durum: L("in the studio", "stüdyoda"), ilkMekan: "studyo",
-               havuz: { studyo: ["medya/askin_studyo1.jpg", "medya/askin_studyo2.jpg", "medya/askin_studyo3.jpg", "medya/askin_oturur.jpg", "medya/askin_oda1.jpg", "medya/askin_studyo4.jpg",
-                                 "medya/askin_oda2.jpg", "medya/askin_oda5.jpg", "medya/askin_oda3.jpg", "medya/askin_studyo5.jpg", "medya/askin_oda4.jpg", "medya/askin_oda6.jpg"],
+      askin: { ad: L("Aşkın Öztürk", "Aşkın Öztürk"), avatar: "medya/askin_av2.jpg", renk: "#d2a94e", durum: L("in the studio", "stüdyoda"), ilkMekan: "studyo",
+               havuz: { // 7 Eki 2026: Aşkın "gözlüksüz" kararı + ilk fotoğraf teslimi → havuz yeni karelerden (eski gözlüklü kareler çıkarıldı)
+                        studyo: ["medya/kare_AS_002.jpg", "medya/kare_AS_006.jpg", "medya/kare_AS_007.jpg", "medya/kare_AS_009.jpg", "medya/kare_AS_008.jpg", "medya/kare_AS_019.jpg", "medya/kare_AS_025.jpg", "medya/kare_AS_026.jpg", "medya/kare_AS_028.jpg", "medya/kare_AS_030.jpg", "medya/kare_AS_032.jpg", "medya/kare_AS_033.jpg", "medya/kare_AS_035.jpg", "medya/kare_AS_044.jpg"],
                         sahne: ["medya/askin_sahne.jpg", "medya/askin_soyluyor.jpg"],
                         sokak: ["medya/askin_yagmur.jpg", "medya/askin_iskele.jpg", "medya/askin_gidiyor.jpg"] } }
     },
@@ -125,7 +125,7 @@
         { t: "sahne",
           zaman: L("FRIDAY · 11:10 PM", "CUMA · 23:10"),
           baslik: L("The concert is tomorrow. Tonight the studio door is open to you.", "Yarın konser var. Bu gece stüdyonun kapısı sana açık."),
-          kadro: [{ k: "askin", f: "medya/askin_kart.jpg", m: L("Songwriter. The end of the set is still empty.", "Söz yazarı. Setin sonu hâlâ boş.") }],
+          kadro: [{ k: "askin", f: "medya/askin_kart2.jpg", m: L("Songwriter. The end of the set is still empty.", "Söz yazarı. Setin sonu hâlâ boş.") }],
           ozet: L("Your mission: find the missing lyric page and decide the closing song.", "Görevin: kayıp söz sayfasını bul ve kapanış şarkısına karar ver."),
           dugme: L("Enter the backstage", "Kulise gir") },
         { t: "sohbet", k: "askin" },
@@ -144,7 +144,7 @@
             de("Fine. But ask before you touch anything.", "Olur. Ama bir şeye dokunmadan önce sor.")] })
         ]),
         // ── 6 Eki eki: stüdyo turu ──
-        foto("askin_studyo3"),
+        { t: "dur" },                                           // (eski gözlüklü kare kalktı; satırlar kendi karesini gösteriyor)
         anlati("He walks you through the room. Every object in here has a job.", "Seni odada gezdiriyor. Buradaki her eşyanın bir işi var."),
         de("This desk hears everything first. Before the band, before the audience; if I'm honest, before me.",
            "Bu masa her şeyi ilk duyan yer. Gruptan önce, seyirciden önce; dürüst olayım, benden de önce."),
@@ -165,7 +165,7 @@
 
       // ───────────── açılış şarkısı
       acilis: [
-        foto("askin_studyo2"),
+        { t: "dur" },
         // ── 6 Eki eki ──
         anlati("The studio smells of coffee and old cables. One lamp is on, over the desk.", "Stüdyo kahve ve eski kablo kokuyor. Tek lamba yanıyor; masanın üstünde."),
         de("Sit there. That's where the bass player sits when he pretends not to have opinions.", "Şuraya otur. Basçı, fikri yokmuş gibi yaparken orada oturur."),
@@ -179,7 +179,7 @@
             secim([acNumara, acGorulme], "Which one opens the night?", "Geceyi hangisi açsın?")] })
         ], "Which one opens the night?", "Geceyi hangisi açsın?"),
         de("While that plays… a frame from last night's take. Nobody has seen it.", "O çalarken… dün geceki kayıttan bir kare. Kimse görmedi."),
-        { t: "kilitli", k: "askin", f: "medya/askin_mikrofon.jpg" },
+        { t: "kilitli", k: "askin", f: "medya/askin_mikrofon2.jpg" },
         // ── 6 Eki eki: setin ortası ──
         de("Tomorrow's room holds three hundred. A small room is harder than a big one; you can see who looked away.",
            "Yarınki salon üç yüz kişilik. Küçük salon büyükten zordur; kimin gözünü kaçırdığını görürsün."),
@@ -223,7 +223,7 @@
                                                 "Ceketini sandalyeden alıyor. İç cebinden katlanmış bir kâğıt kayıp düşüyor.")),
         eger({ yer: ["kilif", "masa"] }, de("…It was on me the whole time. Don't tell anyone.", "…Baştan beri üstümdeymiş. Kimseye söyleme.")),
         { t: "gorev", id: "sayfa" },
-        foto("askin_oturur"),
+        { t: "dur" },
         // ── 6 Eki eki ──
         anlati("He unfolds the sheet. Handwriting, crossed-out lines, a coffee ring in one corner.", "Kâğıdı açıyor. El yazısı, üstü çizilmiş satırlar, bir köşede kahve lekesi."),
         de("I cross out more than I keep. What stays on the page is what refused to leave.", "Tuttuğumdan fazlasını çizerim. Kâğıtta kalan, gitmeyi reddedendir."),
