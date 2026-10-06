@@ -218,6 +218,31 @@
     kadrajUygula($(katman ? "#arkaB" : "#arkaA"));
   }
   function onYukle(f) { if (f) { var i = new Image(); i.src = f; } }
+  var yuklenen = {};
+  function onYukleSira(liste) {                                // kareleri TEK TEK, sırayla önceden yükle (bağlantıyı boğmadan)
+    liste = liste.filter(function (f) { return f && !yuklenen[f]; });
+    var i = 0;
+    (function sonraki() {
+      if (i >= liste.length) return;
+      var im = new Image(), f = liste[i++];
+      yuklenen[f] = 1;
+      im.onload = im.onerror = function () { setTimeout(sonraki, 60); };
+      im.src = f;
+    })();
+  }
+  function dunyaKareleri(w, yalnizIlk) {                       // bir dünyanın arka plan kareleri: önce açılışta görünecekler
+    var ilk = [], kalan = [];
+    Object.keys(w.kanallar).forEach(function (k) {
+      var c = w.kanallar[k];
+      if (c.bekleme) ilk.push(c.bekleme);
+      if (c.arka) ilk.push(c.arka);
+      Object.keys(c.havuz || {}).forEach(function (h) {
+        (h === c.ilkMekan ? ilk : kalan).push(c.havuz[h][0]);
+        kalan = kalan.concat(c.havuz[h].slice(1));
+      });
+    });
+    return yalnizIlk ? ilk : ilk.concat(kalan);
+  }
   function cumleKaresi(a) {                                   // o cümle için özel çekilmiş kare (kareler.js); yoksa null
     var liste = (window.KULIS_KARELER || {})[B.id];
     return (liste && a.m && liste[C.anahtar(a.m.en)]) || null;
@@ -718,6 +743,7 @@
     $("#secimAd").textContent = P.ad;
     var kap = $("#kartlarSecim");
     kap.textContent = "";
+    onYukleSira(K.sira.reduce(function (l, id) { return K.dunyalar[id] ? l.concat(dunyaKareleri(K.dunyalar[id], true)) : l; }, []));
     K.sira.forEach(function (id) {
       var w = K.dunyalar[id], yk = K.yakinda[id], acik = !!w, x = w || yk;
       var b = el("button", "dunya" + (acik ? "" : " kapali")), yz = el("span", "yazi"), i = new Image();
@@ -739,6 +765,7 @@
   }
   function dunyaAc(id, yeniden) {
     B = K.dunyalar[id]; DUGUM = C.derle(B.dugumler);
+    onYukleSira(dunyaKareleri(B, false));
     var d = pd(id), k = yeniden ? null : kayitli(id);
     ekran("oyun");
     $("#oyun").style.setProperty("--vurgu", B.renk);
