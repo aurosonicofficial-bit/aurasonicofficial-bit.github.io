@@ -253,3 +253,14 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--vurgu); out
 .calanlar p.yok { color: var(--soluk); }
 .ikincil.kucuk { display: inline-block; width: auto; margin: 0 4px 10px; padding: 9px 16px; font-size: 14px; }
 .son-ic .soru { margin-top: 14px; font-size: 15px; }
+
+/* ── ayarlar paneli (fon müziği aç / kapa + düzey) ── */
+.gorev-panel.ayar .ayar-satir { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 6px 0; border-top: 1px solid var(--cizgi); font-size: 15px; }
+.gorev-panel.ayar h2 + .ayar-satir { border-top: 0; }
+.gorev-panel.ayar .ayar-satir > span:first-child { flex: 1; min-width: 0; }
+.gorev-panel.ayar .anahtar { flex: none; min-width: 84px; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 650; color: var(--soluk); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); }
+.gorev-panel.ayar .anahtar.acik { color: #0e0e11; background: #5fd39a; border-color: #5fd39a; }
+.gorev-panel.ayar input[type="range"] { flex: 2; min-width: 0; height: 28px; accent-color: #5fd39a; }
+.gorev-panel.ayar input[type="range"]:disabled { opacity: .35; }
+.gorev-panel.ayar .ayar-deger { flex: none; width: 4ch; text-align: right; color: var(--soluk); font-variant-numeric: tabular-nums; }
+.gorev-panel.ayar .ayar-not { margin: 8px 0 0; font-size: 12.5px; color: var(--soluk); }

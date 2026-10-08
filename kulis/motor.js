@@ -37,7 +37,13 @@
     kilitAc: ["Open the photo", "Fotoğrafı aç"],
     kilitGec: ["Not now", "Şimdi değil"],
     cal: ["Play / pause", "Çal / durdur"],
-    muzik: ["Music on / off", "Müziği aç / kapat"],
+    muzik: ["Sound settings", "Ses ayarları"],
+    ayarlar: ["Settings", "Ayarlar"],
+    fonMuzik: ["Background music", "Fon müziği"],
+    acik: ["On", "Açık"],
+    kapali: ["Off", "Kapalı"],
+    duzey: ["Level", "Düzey"],
+    iosNot: ["On iPhone the level follows the phone's volume buttons; on / off works here.", "iPhone'da düzeyi telefonun ses tuşları belirler; aç / kapat burada çalışır."],
     cikis: ["Back to the artists", "Sanatçılara dön"],
     acilanlar: ["Unlocked songs", "Açılan şarkılar"],
     tamami: ["Listen to the full songs →", "Şarkıların tamamını dinle →"],
@@ -109,7 +115,11 @@
     if (!dokun || Date.now() - dokunZaman < 260) return;      // çift dokunuşla cümle atlanmasın
     var f = dokun; dokun = null; f();
   }
-  $("#oyun").addEventListener("click", function (e) { if (!e.target.closest("button, input, form, .gorev-panel")) ilerle(); });
+  $("#oyun").addEventListener("click", function (e) {
+    if (e.target.closest("button, input, form, .gorev-panel")) return;
+    if (!$("#ayarPanel").hidden) return;                      // ayarlar açıkken dışarı dokunmak yalnız paneli kapatır, hikâyeyi ilerletmez
+    ilerle();
+  });
   document.addEventListener("keydown", function (e) {
     if ((e.key === " " || e.key === "Enter") && !$("#oyun").hidden && !e.target.closest("button, input")) { e.preventDefault(); ilerle(); }
   });
@@ -128,13 +138,14 @@
       if (o < 1) setTimeout(adimla, 50);
     })();
   }
+  function fonHedef() { return P && typeof P.fonSes === "number" ? Math.max(0, Math.min(1, P.fonSes)) : K.muzik.ses; }   // oyuncunun ayarı, yoksa varsayılan
   function fonAcik() { return !!P && !P.muzikKapali && (ses.paused || ses.ended || ses.muted); }
   function fonGuncelle() {                                    // şarkı çalarken ya da müzik kapalıyken fon susar
     if (!P) return;
     var acik = fonAcik();
     if (acik) {
       if (fon.paused && fon.src) fon.play().catch(function () {});
-      fonAyarla(K.muzik.ses);
+      fonAyarla(fonHedef());
     } else {                                                  // kıs, sonra DURAKLAT: iPhone ses düzeyini yok sayar, yalnız duraklatma susturur
       fonAyarla(0);
       setTimeout(function () { if (!fonAcik()) fon.pause(); }, 760);
@@ -142,7 +153,43 @@
     $("#sesDugme").textContent = P.muzikKapali ? "🔇" : "♪";
     $("#sesDugme").setAttribute("aria-label", y("muzik"));
   }
-  $("#sesDugme").onclick = function (e) { e.stopPropagation(); P.muzikKapali = !P.muzikKapali; fonGuncelle(); profilYaz(); };
+  // ── ayarlar paneli: fon müziği aç / kapa + düzey (8 Eki 2026 — Aşkın: "fon müziği aç kapa ayarla olsun") ──
+  var IOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  function ayarCiz() {
+    var p = $("#ayarPanel");
+    p.textContent = "";
+    p.appendChild(el("h2", null, y("ayarlar")));
+    var s1 = el("div", "ayar-satir"), anahtar = el("button", "anahtar" + (P.muzikKapali ? "" : " acik"), P.muzikKapali ? y("kapali") : y("acik"));
+    anahtar.type = "button"; anahtar.id = "fonAnahtar";
+    anahtar.setAttribute("role", "switch"); anahtar.setAttribute("aria-checked", String(!P.muzikKapali));
+    anahtar.setAttribute("aria-label", y("fonMuzik"));
+    anahtar.onclick = function () { P.muzikKapali = !P.muzikKapali; profilYaz(); fonGuncelle(); ayarCiz(); };
+    s1.appendChild(el("span", null, y("fonMuzik"))); s1.appendChild(anahtar);
+    p.appendChild(s1);
+    var s2 = el("label", "ayar-satir"), kaydir = el("input"), deger = el("span", "ayar-deger", Math.round(fonHedef() * 100) + "%");
+    kaydir.type = "range"; kaydir.id = "fonDuzey"; kaydir.min = "0"; kaydir.max = "100"; kaydir.step = "5";
+    kaydir.value = String(Math.round(fonHedef() * 100));
+    kaydir.disabled = !!P.muzikKapali || IOS;
+    kaydir.setAttribute("aria-label", y("fonMuzik") + " — " + y("duzey"));
+    kaydir.oninput = function () {
+      P.fonSes = Number(kaydir.value) / 100;
+      deger.textContent = kaydir.value + "%";
+      if (fonAcik()) { fonSayac++; fon.volume = fonHedef(); }   // sürüklerken anında duyulsun (yumuşak geçişi iptal et)
+    };
+    kaydir.onchange = function () { profilYaz(); };
+    s2.appendChild(el("span", null, y("duzey"))); s2.appendChild(kaydir); s2.appendChild(deger);
+    p.appendChild(s2);
+    if (IOS) p.appendChild(el("p", "ayar-not", y("iosNot")));
+  }
+  $("#ayarPanel").onclick = function (e) { e.stopPropagation(); };
+  $("#sesDugme").onclick = function (e) {
+    e.stopPropagation();
+    var p = $("#ayarPanel"), ac = p.hidden;
+    $("#gorevPanel").hidden = true; $("#playerPanel").hidden = true; $("#gorevDugme").setAttribute("aria-expanded", "false");
+    if (ac) ayarCiz();
+    p.hidden = !ac;
+    this.setAttribute("aria-expanded", String(ac));
+  };
   function bipCal() { if (HIZLI) return; try { bip.currentTime = 0; bip.play().catch(function () {}); } catch (e) { /* ses yok */ } }
   function sarkiAcildi(s) {                                   // profilde "açılan şarkılar"
     var d = pd(B.id);
@@ -192,7 +239,7 @@
   document.addEventListener("pointerdown", function () {
     if (!P || !fonAcik()) return;
     if (!fon.src) { fon.src = K.muzik.dosya; }
-    if (fon.paused) { fon.play().catch(function () {}); fonAyarla(K.muzik.ses); }
+    if (fon.paused) { fon.play().catch(function () {}); fonAyarla(fonHedef()); }
   }, true);
 
   // ── gömülü player: bu sanatçıda açılan şarkılar ──
@@ -359,11 +406,12 @@
   }
   $("#gorevDugme").onclick = function (e) {
     e.stopPropagation();
-    var p = $("#gorevPanel"); p.hidden = !p.hidden; $("#playerPanel").hidden = true;
+    var p = $("#gorevPanel"); p.hidden = !p.hidden; $("#playerPanel").hidden = true; $("#ayarPanel").hidden = true;
     this.setAttribute("aria-expanded", String(!p.hidden));
   };
   document.addEventListener("click", function () {
-    $("#gorevPanel").hidden = true; $("#playerPanel").hidden = true; $("#gorevDugme").setAttribute("aria-expanded", "false");
+    $("#gorevPanel").hidden = true; $("#playerPanel").hidden = true; $("#ayarPanel").hidden = true; $("#gorevDugme").setAttribute("aria-expanded", "false");
+    $("#sesDugme").setAttribute("aria-expanded", "false");
   });
   $("#geriDugme").onclick = function (e) {                    // sanatçı seçimine dön (oyun kayıtlı kalır)
     e.stopPropagation();
@@ -841,5 +889,6 @@
   $("#ad").addEventListener("keydown", function (e) { if (e.key === "Enter") basla(); });
   acilisCiz();
 
-  window.__oyun = { durum: function () { return D; }, profil: function () { return P; }, dunya: function () { return B; } };   // sınama betikleri buradan okur
+  window.__oyun = { durum: function () { return D; }, profil: function () { return P; }, dunya: function () { return B; },
+                    ses: function () { return { fon: fon.volume, fonDuruyor: fon.paused, fonKaynak: !!fon.src }; } };   // sınama betikleri buradan okur
 })();
