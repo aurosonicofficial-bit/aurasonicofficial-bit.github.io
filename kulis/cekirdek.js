@@ -165,7 +165,7 @@
             ["zaman", "baslik", "ozet", "dugme"].forEach(function (x) { metin(a[x], yer + " " + x); });
             (a.kadro || []).forEach(function (r) { kanal(r.k, yer); dosya(r.f, yer); metin(r.m, yer + " kadro"); });
             break;
-          case "dur": case "bayrak": break;
+          case "dur": case "bayrak": case "ton": break;
           case "olc": if (!a.enaz || !a.bayrak || !a.yoksa) sorun.push(yer + ": enaz + bayrak + yoksa gerek"); break;
           case "son": listede(B.sonlar, a.id, "son", yer); break;
           case "git": dugum(a.d, yer); break;

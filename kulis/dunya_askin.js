@@ -13,6 +13,7 @@
   var mekan = function (h, gosterme) { return { t: "mekan", k: "askin", h: h, gosterme: !!gosterme }; };
   var eger = function (kosul, adim) { adim.eger = kosul; return adim; };
   var secim = function (secenekler, soruEn, soruTr) { return { t: "secim", s: secenekler, soru: soruEn ? L(soruEn, soruTr) : null }; };
+  var K = function (adim, kare) { adim.kare = "medya/" + kare + ".jpg"; return adim; };   // satıra elle kare bağla (teslim gelmemiş yeni satırlar için)
   var s = function (en, tr, ek) { var o = { m: L(en, tr) }; for (var k in (ek || {})) o[k] = ek[k]; return o; };
 
   // açılış şarkısı seçenekleri (iki yerde kullanılıyor)
@@ -25,15 +26,15 @@
 
   kok.KULIS.dunyalar.askin = {
     id: "askin",
-    surum: 1,
+    surum: 2,                                                 // 8 Eki: karanlık açılış eklendi → yarım kalan eski kayıt baştan başlar (açılışı herkes görsün)
     ad: L("Aşkın Öztürk", "Aşkın Öztürk"),
     tur: L("Emotional pop-rock · words & music", "Duygusal pop-rock · söz-müzik"),
     cumle: L("The studio, the night before the concert.", "Konserden önceki gece, stüdyo."),
-    bolumAdi: L("Chapter 1 — I Wrote You Into the Night", "Bölüm 1 — Geceye Yazdım Seni"),
+    bolumAdi: L("Chapters 1–2 — I Wrote You Into the Night · Who Put Out the Lights", "Bölüm 1–2 — Geceye Yazdım Seni · Kim Söndürdü"),
     renk: "#d2a94e",
     kart: "medya/askin_kart2.jpg",
     avatar: "medya/askin_av2.jpg",
-    baslangic: "giris",
+    baslangic: "onsoz",
     baslangicElmas: 1,
     kilitBedeli: 1,
     kilitYan: "kare",
@@ -121,6 +122,43 @@
     dugumler: {
 
       // ───────────── kapı
+      // ── 8 Eki 2026 DENEME: karanlık açılış. Konser gecesi, ışıklar 40 sn söner; sonra hikâye "bir gece önce"ye döner (mevcut Bölüm 1).
+      //    ⚠ Aşkın'ın ağzından yazılan bu cümleler ONAYSIZ taslak; kareler eldeki gergin karelerden elle seçildi (K(adım, kare)).
+      //    "Kullanılanı kullan" (Aşkın, 8 Eki): eldeki kare yetiyorsa o kullanılır. Elde HİÇ olmayan üç olay karesi sipariş edildi
+      //    (salondaki adam, kapıdan çıkan kişi, küpe) → KULIS_CINAYET_GECESI_URETIM.md; gelince kendi satırına oturur.
+      onsoz: [
+        { t: "ton", v: "karanlik" },
+        { t: "sahne",
+          zaman: L("SATURDAY · 11:47 PM", "CUMARTESİ · 23:47"),
+          baslik: L("During the last song the lights went out. Forty seconds.", "Son şarkıda ışıklar söndü. Kırk saniye."),
+          kadro: [],
+          ozet: L("When they came back, the man in the second row did not stand up.", "Işıklar geri geldiğinde ikinci sıradaki adam ayağa kalkmadı."),
+          dugme: L("Continue", "Devam et") },
+        K(anlati("The hall was still applauding. He wasn't.", "Salon hâlâ alkışlıyordu. O alkışlamıyordu."), "kare_AS_061"),
+        K(anlati("Someone left through the backstage door before the first scream.", "İlk çığlıktan önce biri kulis kapısından çıktı."), "kare_AS_A03"),
+        { t: "sohbet", k: "askin" },
+        K(de("{ad}. Say nothing to anyone. Come to the studio.", "{ad}. Kimseye bir şey söyleme. Stüdyoya gel."), "kare_AS_027"),
+        K(anlati("2:10 AM. The studio door is ajar again.", "Gece 02:10. Stüdyonun kapısı yine aralık."), "kare_AS_A01"),
+        K(de("I knew that man. I didn't tell the police.", "O adamı tanıyordum. Polise söylemedim."), "kare_AS_028"),
+        secim([
+          s("Why didn't you?", "Neden söylemedin?", { p: { c: 1 }, sonra: [
+            K(de("Because his name was on the lyric page that went missing last night. And the page is gone again.",
+                 "Çünkü dün gece kaybolan söz sayfasında onun adı yazıyordu. Ve sayfa yine yok."), "kare_AS_032")] }),
+          s("Why are you telling me?", "Bana neden söylüyorsun?", { p: { g: 1 }, sonra: [
+            K(de("Because last night there were only two people in this room. You and me.",
+                 "Çünkü dün gece bu odada iki kişi vardı. Sen ve ben."), "kare_AS_052")] }),
+          s("I shouldn't be here.", "Burada olmamalıyım.", { p: { c: 1 }, sonra: [
+            K(de("Too late. The camera at the door saw you come in.", "Geç kaldın. Kapıdaki kamera girdiğini gördü."), "kare_AS_003")] })
+        ]),
+        K(anlati("Under the desk, among the cables, something catches the light.", "Masanın altında, kabloların arasında bir şey parlıyor."), "kare_AS_A07"),
+        K(de("Don't touch it. …That isn't mine.", "Dokunma. …O benim değil."), "kare_AS_031"),
+        K(anlati("An earring. Just one.", "Bir küpe. Tek."), "kare_AS_A07"),
+        K(de("Someone was in here before you last night. Someone I trusted. To find out who, go back to last night. From the start.",
+             "Dün gece buraya senden önce biri girmiş. Güvendiğim biri. Kim olduğunu bulmak için dün geceye dön. En baştan."), "askin_pencere"),
+        { t: "ton", v: "" },
+        { t: "git", d: "giris" }
+      ],
+
       giris: [
         { t: "sahne",
           zaman: L("FRIDAY · 11:10 PM", "CUMA · 23:10"),
@@ -308,7 +346,8 @@
         anlati("The door closes. The end of the set is still empty.", "Kapı kapanıyor. Setin sonu hâlâ boş."),
         anlati("On the street the rain has started. You realise you never asked him which song he would have picked.",
                "Sokakta yağmur başlamış. Ona hangi şarkıyı seçeceğini hiç sormadığını fark ediyorsun."),
-        { t: "son", id: "dusuk" }
+        { t: "bayrak", b: { son1: "dusuk" } },                  // 8 Eki: Bölüm 1 sonu saklanır, hikâye Bölüm 2'ye geçer
+        { t: "git", d: "kim_sondurdu" }
       ],
       son_orta: [
         de("Come to the concert tomorrow. Your name will be at the backstage door.", "Yarın konsere gel. Kulis kapısında adın yazacak."),
@@ -317,7 +356,8 @@
         de("Knock. I'll open.", "Kapıyı çal. Açarım."),
         anlati("He walks off into the rain with the setlist in his pocket. The last line has a title on it now.",
                "Setlist cebinde, yağmurun içine yürüyor. Son satırda artık bir şarkı adı yazıyor."),
-        { t: "son", id: "orta" }
+        { t: "bayrak", b: { son1: "orta" } },                  // 8 Eki: Bölüm 1 sonu saklanır, hikâye Bölüm 2'ye geçer
+        { t: "git", d: "kim_sondurdu" }
       ],
       son_yuksek: [
         mekan("sahne", true),
@@ -327,7 +367,8 @@
         de("You pick the last song.", "Son şarkıyı sen seç."),
         anlati("Three hundred people are waiting on the other side of the curtain. He hands you the pen.",
                "Perdenin öbür yanında üç yüz kişi bekliyor. Kalemi sana uzatıyor."),
-        { t: "son", id: "yuksek" }
+        { t: "bayrak", b: { son1: "yuksek" } },                  // 8 Eki: Bölüm 1 sonu saklanır, hikâye Bölüm 2'ye geçer
+        { t: "git", d: "kim_sondurdu" }
       ],
       son_gizli: [
         mekan("sahne", true),
@@ -338,8 +379,102 @@
         sarki("neon"),
         de("You found the page, you asked for the question, you closed with the night. This one is for you.",
            "Sayfayı buldun, soruyu istedin, geceyi geceyle kapattın. Bu da senin için."),
-        { t: "son", id: "gizli" }
-      ]
+        { t: "bayrak", b: { son1: "gizli" } },                  // 8 Eki: Bölüm 1 sonu saklanır, hikâye Bölüm 2'ye geçer
+        { t: "git", d: "kim_sondurdu" }
+      ],
+      // ───────────── BÖLÜM 2 — KİM SÖNDÜRDÜ (8 Eki 2026, Aşkın: "oyuna bağla")
+      // Karışık tür: ihanet (Selim) + aşk (iki çift küpe: Maria / Lina) + ihtiras (Jaxen'in bandı) + cinayet (sayfa ölünün koltuğunda).
+      // Satır → kare listesi: KULIS_KARISIK_HIKAYE_PROMPT_LISTESI_2026-10-08.md. Yeni 7 kare gelene kadar en yakın eldeki kare elle bağlı (K);
+      // teslim gelince kare_al.py kendi satırına oturtur. ⚠ Aşkın'ın ağzından yazılan satırlar taslak; "Selim" ve "Lina" geçici adlar.
+      kim_sondurdu: [
+        { t: "ton", v: "karanlik" },
+        mekan("studyo", true),
+        { t: "sahne",
+          zaman: L("SUNDAY · 2:20 AM", "PAZAR · 02:20"),
+          baslik: L("Chapter 2 — Who Put Out the Lights", "Bölüm 2 — Kim Söndürdü"),
+          kadro: [],
+          ozet: L("You've been back through last night. Whoever cut the lights was in this room.", "Dün geceden döndün. Işıkları kim söndürdüyse dün gece bu odadaydı."),
+          dugme: L("Continue", "Devam et") },
+        { t: "sohbet", k: "askin" },
+        K(anlati("You're back from last night. Same room; only the hour has changed.", "Dün geceden döndün. Oda aynı; yalnız saat değişti."), "kare_AS_A13"),
+        K(de("His name was Selim. Fifteen years ago the two of us sat at this desk.", "Adı Selim. On beş yıl önce bu masanın başında ikimiz otururduk."), "kare_AS_006"),
+        K(de("The ticket from our first show together is still in that case.", "Birlikte çıktığımız ilk konserin bileti hâlâ şu kutuda."), "kare_AS_030"),
+        K(anlati("He takes a small, worn slip of paper out of his wallet.", "Cüzdanından küçük, eskimiş bir kâğıt çıkarıyor."), "kare_AS_033"),
+        K(de("His number. I deleted it from the phone; I couldn't throw this away. Nine years I didn't call. Last night he called.",
+             "Numarası. Telefondan sildim, bunu atamadım. Dokuz yıl aramadım. Dün gece o aradı."), "kare_AS_008"),
+        eger({ acilis: "numara" }, K(anlati("Last night you opened with “Kayıtlı Numara”. Now he won't look at you.",
+                                             "Dün gece açılışa “Kayıtlı Numara”yı seçmiştin. Şimdi yüzüne bakmıyor."), "kare_AS_A05")),
+        secim([
+          s("What did he want?", "Ne istedi?", { p: { g: 1 }, sonra: [
+            K(de("The last verse. His name was on that page; he didn't want me to sing it on stage.",
+                 "Son kıtayı istedi. Kâğıtta adı geçiyordu; sahnede söylememi istemedi."), "kare_AS_036")] }),
+          s("Why nine years?", "Neden dokuz yıl?", { p: { m: 1 }, sonra: [
+            K(de("Once he took something that was mine and sold it under someone else's name. I kept the number so I wouldn't forget.",
+                 "Bir zamanlar bana ait olanı aldı, başkasının adıyla sattı. Numarayı unutmamak için tuttum."), "kare_AS_026")] }),
+          s("You didn't tell the police this either.", "Bunu da polise söylemedin.", { p: { c: 1 }, sonra: [
+            K(de("If I had, the first question would have been about you. The lights went out during the song you picked.",
+                 "Söyleseydim ilk soru sana gelirdi. Işıklar senin seçtiğin şarkıda söndü."), "kare_AS_050")] })
+        ]),
+        K(anlati("Forty seconds, right in the middle of the last song. Only the two of you knew who picked that song.",
+                 "Kırk saniye, son şarkının tam ortasında. O şarkıyı kimin seçtiğini yalnız ikiniz biliyordunuz."), "kare_AS_A18"),
+        K(anlati("And whoever saw the list taped to the backstage door. The last line was filled in. One corner torn off.",
+                 "Bir de kulis kapısına bantlanan listeyi gören. Son satır doluydu. Köşesi yırtık."), "kare_AS_059"),
+        K(de("The shot I showed no one. I said it was from last night's session; I lied.",
+             "Kimseye göstermediğim kare. “Dün geceki kayıttan” demiştim; yalan söyledim."), "kare_AS_019"),
+        K(anlati("He turns the photo over. Not from the session: from the door camera. Selim and a woman in the corridor. Her face is on his shoulder.",
+                 "Fotoğrafı çeviriyor. Kayıttan değil, kapıdaki kameradan: koridorda Selim ve bir kadın. Kadının yüzü onun omzunda."), "kare_AS_A10"),
+        K(de("10:40 PM. Half an hour before you. Someone with a key brought him here.",
+             "22:40. Senden yarım saat önce. Onu buraya anahtarı olan biri getirdi."), "kare_AS_046"),
+        K(anlati("He picks up the earring with a handkerchief and holds it to the lamp.", "Küpeyi bir mendille alıyor, lambaya tutuyor."), "kare_AS_A07"),
+        K(de("There were two pairs of these. Selim bought both on the same day.", "Bu küpeden iki çift vardı. Selim ikisini aynı gün aldı."), "kare_AS_040"),
+        secim([
+          s("For Maria Mel.", "Maria Mel'e.", { p: { m: 1 }, b: { kupe: "maria" }, sonra: [
+            K(de("One pair for Maria. Ask her; she knows better than I do.", "Bir çifti Maria'ya. Ona sor; benden iyi bilir."), "kare_AS_041")] }),
+          s("For Kael's ex.", "Kael'in eski sevgilisine.", { p: { g: 1 }, b: { kupe: "lina" }, sonra: [
+            K(de("The other to Lina. The woman sitting next to Selim tonight. The week she left Kael.",
+                 "Öbürünü Lina'ya. Bu gece Selim'in yanında oturan kadına. Kael'den ayrıldığı hafta."), "kare_AS_039")] }),
+          s("Don't tell me. I'll find out.", "Söyleme, kendim bulurum.", { p: { c: 1 }, b: { kupe: "kendim" }, sonra: [
+            K(de("Good. Trust no one. Not even me.", "İyi. Kimseye güvenme. Bana da."), "kare_AS_053")] })
+        ], "Who were they for?", "Kime?"),
+        K(anlati("He opens the drawer. Among the pages there's something that wasn't there yesterday.",
+                 "Çekmeceyi açıyor. Sayfaların arasında dün orada olmayan bir şey var."), "kare_AS_010"),
+        K(anlati("An old tape box. Jaxen Moon's handwriting on the label.", "Eski bir bant kutusu. Üstünde Jaxen Moon'un el yazısı."), "kare_AS_A04"),
+        K(de("Jaxen's lost recording. Selim had it for years. Someone left it here and took my page with them.",
+             "Jaxen'in kayıp kaydı. Yıllardır Selim'deydi. Biri bunu buraya bırakmış, sayfamı da alıp gitmiş."), "kare_AS_029"),
+        K(anlati("A blue light is turning out on the street. Nobody comes to the door. Not yet.",
+                 "Sokakta mavi bir ışık dönüyor. Kapıya kimse gelmiyor. Henüz."), "kare_AS_A15"),
+        K(anlati("A photo lands on your phone: the second row, an empty seat, a folded sheet of paper on it.",
+                 "Telefonuna bir fotoğraf düşüyor: ikinci sıra, boş koltuk, üstünde katlanmış bir kâğıt."), "kare_AS_A19"),
+        K(de("…Wait. I need to think. My page was on Selim's seat. Now the police have it, in my handwriting.",
+             "…Bir dakika. Düşünmem lazım. Sayfam Selim'in koltuğundaymış. Şimdi polisin elinde, benim el yazımla."), "kare_AS_004"),
+        secim([
+          s("I'll cover for you.", "Seni koruyacağım.", { p: { g: 1 }, b: { yol2: "bant" }, sonra: [
+            K(de("Then take the tape. Bring it to Jaxen. Show it to no one.", "O zaman bandı al. Jaxen'e götür. Kimseye gösterme."), "kare_AS_051")] }),
+          s("I'll find who owns the earring.", "Küpenin sahibini bulacağım.", { p: { c: 1 }, b: { yol2: "kupe" }, sonra: [
+            K(de("Careful. The people who loved Selim are more dangerous than the ones who didn't.",
+                 "Dikkat et. Selim'i sevenler, onu sevmeyenlerden daha tehlikeli."), "kare_AS_022")] }),
+          s("I'm telling the police everything.", "Polise her şeyi anlatacağım.", { p: { m: 1 }, b: { yol2: "polis" }, sonra: [
+            K(de("Tell them. But first ask whether all the handwriting on that page is mine.",
+                 "Anlat. Ama önce o sayfadaki el yazısının hepsi benim mi, onu sor."), "kare_AS_056")] })
+        ], "The police will ask about you in the morning. What will you do?", "Sabah polis seni soracak. Ne yapacaksın?"),
+        K(anlati("On your way out you look back. His hand comes out of his inner pocket with a folded sheet of paper. Another page?",
+                 "Kapıdan çıkarken dönüp bakıyorsun. Eli ceketinin iç cebinden katlanmış bir kâğıtla çıkıyor. Bir sayfa daha mı?"), "kare_AS_A08"),
+        K(anlati("The door closes. You still don't know who had those forty seconds.",
+                 "Kapı kapanıyor. Kırk saniyenin kimde olduğunu hâlâ bilmiyorsun."), "kare_AS_A14"),
+        { t: "ton", v: "" },
+        { t: "karar",
+          yollar: [
+            { bayrak: { son1: "gizli" }, git: "son2_gizli" },
+            { bayrak: { son1: "yuksek" }, git: "son2_yuksek" },
+            { bayrak: { son1: "orta" }, git: "son2_orta" }
+          ],
+          yoksa: "son2_dusuk" }
+      ],
+      // Bölüm 1'de kazanılan son, Bölüm 2'nin sonunda kaydedilir (dört son ve koşulları değişmedi)
+      son2_dusuk: [{ t: "son", id: "dusuk" }],
+      son2_orta: [{ t: "son", id: "orta" }],
+      son2_yuksek: [{ t: "son", id: "yuksek" }],
+      son2_gizli: [{ t: "son", id: "gizli" }]
     }
   };
 })(typeof window !== "undefined" ? window : this);

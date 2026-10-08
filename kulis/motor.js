@@ -14,6 +14,7 @@
   var HIZLI = new URLSearchParams(location.search).get("hiz") === "0";
   var OLCUM = (window.AYAR && window.AYAR.olcum) || "";       // sayım adresi; boşsa olaylar yalnız cihazda kalır
   var SITE = "https://www.aurasonicofficial.com";
+  var YT = "https://www.youtube.com/@AuraSonicOfficialMusic";   // 8 Eki 2026 (Aşkın): akış siteden YOUTUBE'A — oyundaki dış bağlantılar kanala gider
 
   var Y = {
     adEtiket: ["What should they call you?", "Sana ne desinler?"],
@@ -46,7 +47,9 @@
     iosNot: ["On iPhone the level follows the phone's volume buttons; on / off works here.", "iPhone'da düzeyi telefonun ses tuşları belirler; aç / kapat burada çalışır."],
     cikis: ["Back to the artists", "Sanatçılara dön"],
     acilanlar: ["Unlocked songs", "Açılan şarkılar"],
-    tamami: ["Listen to the full songs →", "Şarkıların tamamını dinle →"],
+    tamami: ["Listen to the full songs on YouTube →", "Şarkıların tamamını YouTube'da dinle →"],
+    abone: ["Subscribe on YouTube", "YouTube'da abone ol"],
+    ytDinle: ["Open on YouTube", "YouTube'da aç"],
     gonder: ["Send", "Gönder"],
     sonBaslik: ["ENDING", "SON"],
     sonlarBaslik: ["Endings found", "Bulunan sonlar"],
@@ -242,6 +245,19 @@
     if (fon.paused) { fon.play().catch(function () {}); fonAyarla(fonHedef()); }
   }, true);
 
+  // ── YouTube bağlantıları: şarkının kendi adresi tanımlıysa o (sarkilar[s].yt), değilse kanalın içinde o şarkının araması ──
+  function ytAdres(s) {
+    var S = B.sarkilar[s];
+    if (S.yt) return S.yt;
+    return YT + "/search?query=" + encodeURIComponent(S.ad + " " + M(B.kanallar[S.k] ? B.kanallar[S.k].ad : B.ad));
+  }
+  function ytBag(metin, adres, sinif, veri) {
+    var a = el("a", sinif, metin);
+    a.href = adres; a.target = "_blank"; a.rel = "noopener";
+    a.onclick = function (e) { e.stopPropagation(); olay("EXTERNAL_MUSIC_CLICK", veri || { n: "yt" }); };
+    return a;
+  }
+
   // ── gömülü player: bu sanatçıda açılan şarkılar ──
   function playerAc() {
     var p = $("#playerPanel"), ul = el("ul");
@@ -252,13 +268,13 @@
       var li = el("li"), b = el("button", "satir-dugme", (calan === s && !ses.paused ? "❚❚  " : "▶  ") + B.sarkilar[s].ad);
       b.type = "button";
       b.onclick = function (e) { e.stopPropagation(); olay("TRACK_SELECTED", { s: s, n: "player" }); cal(s, calan === s ? "dugme" : "player"); playerAc(); };
-      li.appendChild(b); ul.appendChild(li);
+      li.appendChild(b);
+      var yt = ytBag("YouTube ↗", ytAdres(s), "yt", { s: s, n: "yt-player" });
+      yt.setAttribute("aria-label", B.sarkilar[s].ad + " — " + y("ytDinle"));
+      li.appendChild(yt); ul.appendChild(li);
     });
     p.appendChild(ul);
-    var a = el("a", "dis", y("tamami"));
-    a.href = SITE; a.target = "_blank"; a.rel = "noopener";
-    a.onclick = function (e) { e.stopPropagation(); olay("EXTERNAL_MUSIC_CLICK"); };
-    p.appendChild(a);
+    p.appendChild(ytBag(y("tamami"), YT, "dis", { n: "yt-kanal" }));
     p.hidden = false;
   }
 
@@ -304,7 +320,7 @@
   }
   function cumleKaresi(a) {                                   // o cümle için özel çekilmiş kare (kareler.js); yoksa null
     var liste = (window.KULIS_KARELER || {})[B.id];
-    return (liste && a.m && liste[C.anahtar(a.m.en)]) || null;
+    return (liste && a.m && liste[C.anahtar(a.m.en)]) || a.kare || null;   // teslim edilen kare > hikâyede elle bağlanan geçici kare
   }
   function yeniKare(k, ozel) {                                // sanatçının her cümlesinde: cümlenin karesi ya da sıradaki poz + yeni kadraj
     if (ozel) {                                               // aynı kare zaten ekrandaysa kadraj değişir; değilse kare tam kadrajıyla gelir
@@ -320,6 +336,7 @@
   }
   function arkaKoy(f) {
     $("#arka").classList.toggle("bulanik", !!D.bulanik);
+    $("#arka").classList.toggle("karanlik", D.ton === "karanlik");
     $("#kilitOrtu").hidden = !D.bulanik;
     if (!f || gosterilen === f) { D.arka = f || D.arka; return; }
     D.arka = f; gosterilen = f;
@@ -675,6 +692,10 @@
         await satir("sarki", M(c.ad), c.renk, "♪ " + S.ad, y("dinle"));
         break;
       case "dur": break;
+      case "ton":                                             // sahnenin tonu: "karanlik" = koyu, soğuk; "" = olağan
+        D.ton = a.v || "";
+        $("#arka").classList.toggle("karanlik", D.ton === "karanlik");
+        break;
       case "gorev":
         g = B.gorevler.filter(function (x) { return x.id === a.id; })[0];
         if (a.basarisiz) {
@@ -772,11 +793,15 @@
       kutu.appendChild(p);
     });
     kutu.appendChild(el("h3", "ikinci", y("acilanlar") + " · " + d.sarkilar.length + " / " + Object.keys(B.sarkilar).length));
-    d.sarkilar.forEach(function (s) { if (B.sarkilar[s]) kutu.appendChild(el("p", null, "♪  " + B.sarkilar[s].ad)); });
-    var a = el("a", null, y("tamami"));
-    a.href = SITE; a.target = "_blank"; a.rel = "noopener";
-    a.onclick = function () { olay("EXTERNAL_MUSIC_CLICK"); };
-    kutu.appendChild(a);
+    d.sarkilar.forEach(function (s) {
+      if (!B.sarkilar[s]) return;
+      var p = el("p", "sarki-satir", "♪  " + B.sarkilar[s].ad + "  ");
+      var yt = ytBag("YouTube ↗", ytAdres(s), "yt", { s: s, n: "yt-son" });
+      yt.setAttribute("aria-label", B.sarkilar[s].ad + " — " + y("ytDinle"));
+      p.appendChild(yt); kutu.appendChild(p);
+    });
+    kutu.appendChild(ytBag(y("tamami"), YT, null, { n: "yt-kanal" }));
+    kutu.appendChild(ytBag(y("abone"), YT + "?sub_confirmation=1", "abone", { n: "yt-abone" }));
     ic.appendChild(kutu);
 
     var yb = el("button", "ana", y("yeniden"));
