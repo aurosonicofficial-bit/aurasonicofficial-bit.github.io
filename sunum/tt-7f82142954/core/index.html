@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aura Sonic Core — İşletmenizin Süper Zekâ Çalışma Sistemi</title>
+<meta name="description" content="Aura Sonic Core; işletmenizi dinleyen, ihtiyacını analiz eden ve size özel çözümler kuran yönetilen yapay zekâ ajan hizmetidir. Çoklu uzmanlık, tek koordinasyon, insan kontrolü, ölçülebilir değer.">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta property="og:title" content="Aura Sonic Core — İşletmenizin Süper Zekâ Çalışma Sistemi">
+<meta property="og:description" content="Çoklu uzmanlık. Tek koordinasyon. İnsan kontrolü. Ölçülebilir değer.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://core.aurasonicofficial.com/">
+<meta property="og:locale" content="tr_TR">
+<meta name="theme-color" content="#1b2732">
+<meta property="og:image" content="https://core.aurasonicofficial.com/img/og.jpg">
+<link rel="icon" type="image/png" sizes="64x64" href="img/simge-64.png">
+<link rel="apple-touch-icon" href="img/simge-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- YAYIN ÖNCESİ DOĞRULA (Smiling Eyes, 13 Eki 2026): her taahhüt yayın anında GERÇEK olmalı.
+     · HERO: Banu'nun 12 Eki'de onayladığı metin BİREBİR (belge 1VkUaYhU…). Değiştirme.
+     · 2 Kas 2026 (Smiling/Gülen Gözler, Aşkın "düzelt"): olay 5.062 → "5.000+", karar 76, uzman rol 74 (76 kimlik − 2 yönetici); 2.415 = damgalı liste, değişmedi.
+     · Sayılar 13 Eki 2026 15:30'da ölçüldü: radyo 4 (radyo.json) · telif manifestosu 2.415 eser · Core olay 3.524 · doğrulama noktası 2.464
+       · kayıtlı karar 40 (hepsi insan onaylı DEĞİL: D-2026-0823-04 açık → sitede "insan onaylı" deme) · uzman rol 75 (60 taslak, 14 deneme, 2 sınırlı canlı) → yayın günü YENİDEN ÖLÇ.
+     · #guvence tablosundaki "Kurulu / Devreye alınıyor / Geliştiriliyor / Yol haritası" durumları Core'un gerçek hâlidir; ilerledikçe güncelle,
+       ilerlemeden "Kurulu" yazma (kiracı ayrımı ve C-03 uyku HENÜZ kurulu değil).
+     · Ürün görünümlerindeki isim/sayılar ÖRNEK (etiketli) · müşteri adı yalnız yazılı izinle · Banu fotoğrafı onayıyla.
+     · Şirket ünvanı / vergi dairesi-no / MERSİS alt bilgide YOK → Aşkın Bey verince eklenir. gizlilik.html hukuk gözünden geçmeli. -->
+<style>
+:root{--zemin:#f4f7fa;--kart:#ffffff;--murekkep:#1b2732;--metin:#27333c;--gri:#566571;--cizgi:#d6dfe7;--lacivert:#1b2732;--lacivert2:#25343f;--altin:#087c99;--altin2:#22d7ff;--yesil:#1f7a4d;--yesilz:#e6f3ec;--sariz:#fbf1d6;--maviz:#e8ecfa;--mavi:#3a4aa0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:Inter,Arial,sans-serif;background:var(--zemin);color:var(--metin);line-height:1.62;font-size:16.5px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;display:block}
+.kap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Sora",Inter,Arial,sans-serif;color:var(--murekkep);font-weight:600;letter-spacing:-.3px}
+h1{font-size:clamp(42px,5.6vw,74px);line-height:1.04}
+h2{font-size:clamp(32px,4.2vw,52px);line-height:1.1;margin-bottom:18px}
+h3{font-size:24px;line-height:1.2;margin-bottom:8px}
+h4{font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--altin);margin-bottom:8px}
+.ust-etiket{font-size:12.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--altin);margin-bottom:16px}
+.giris{font-size:19px;color:var(--gri);max-width:720px}
+section{padding:104px 0}
+.ayrac{border-top:1px solid var(--cizgi)}
+.atla{position:absolute;left:-999px;top:8px;background:var(--murekkep);color:#fff;padding:10px 16px;border-radius:8px;z-index:50}
+.atla:focus{left:12px}
+:focus-visible{outline:2px solid var(--altin);outline-offset:3px}
+header{position:sticky;top:0;z-index:20;background:rgba(244,247,250,.93);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.kaydi{border-bottom-color:var(--cizgi)}
+header .kap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:18px}
+.logo{font-family:"Sora",Inter,Arial,sans-serif;font-size:26px;font-weight:700;text-decoration:none;color:var(--murekkep);white-space:nowrap}
+.logo span{color:var(--altin)}
+nav{display:flex;align-items:center;gap:22px}
+nav a{text-decoration:none;font-size:14.5px;color:var(--metin)}
+nav a:hover{color:var(--altin)}
+.menu-d{display:none;background:none;border:1px solid var(--cizgi);border-radius:10px;padding:8px 12px;font:600 14px Inter,sans-serif;color:var(--murekkep);cursor:pointer}
+.dugme{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;font-weight:600;font-size:15.5px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .2s;font-family:inherit}
+.dugme:hover{transform:translateY(-1px)}
+.dugme.koyu{background:var(--murekkep);color:#fff}
+.dugme.koyu:hover{background:#000}
+.dugme.acik{border-color:var(--murekkep);color:var(--murekkep);background:transparent}
+.dugme.altin{background:var(--altin2);color:var(--murekkep)}
+.dugme.kucuk{padding:9px 16px;font-size:14px}
+.hero{padding:78px 0 64px}
+.hero .izgara{display:grid;grid-template-columns:1.08fr 1fr;gap:54px;align-items:center}
+.hero .alt{font-family:"Sora",Inter,Arial,sans-serif;font-size:clamp(21px,2.2vw,27px);color:var(--murekkep);font-weight:600;margin:20px 0 0;line-height:1.3}
+.hero p.giris{margin:20px 0 32px;font-size:18px}
+.hero .dugmeler{display:flex;gap:12px;flex-wrap:wrap}
+.canli{display:flex;align-items:flex-start;gap:10px;margin-top:30px;font-size:14px;color:var(--gri)}
+.canli .nokta{width:9px;height:9px;border-radius:50%;background:#e0453a;animation:nabiz 1.8s infinite;flex:none;margin-top:7px}
+.canli a{color:var(--murekkep);font-weight:600;text-decoration:none;border-bottom:1px solid var(--cizgi)}
+@keyframes nabiz{0%{box-shadow:0 0 0 0 rgba(224,69,58,.5)}70%{box-shadow:0 0 0 9px rgba(224,69,58,0)}100%{box-shadow:0 0 0 0 rgba(224,69,58,0)}}
+.panel{background:var(--lacivert);border-radius:18px;color:#e2eaf0;box-shadow:0 30px 70px rgba(27,39,50,.26);overflow:hidden;font-size:13.5px}
+.panel .bar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:var(--lacivert2);color:#9fb0bc;font-size:12.5px}
+.panel .bar i{width:9px;height:9px;border-radius:50%;background:#3d5464;flex:none}
+.panel .bar b{margin-left:10px;color:#eef3f7;font-weight:600}
+.panel .bar .sag{margin-left:auto;font-size:11px;padding:3px 9px;border-radius:999px;background:rgba(34,215,255,.14);color:var(--altin2);white-space:nowrap}
+.panel .ic{padding:18px}
+.panel-not{font-size:12.5px;color:var(--gri);margin-top:10px;text-align:right}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.kpi div{background:var(--lacivert2);border-radius:12px;padding:12px}
+.kpi b{display:block;font-family:"Sora",Inter,Arial,sans-serif;font-size:28px;color:#fff;line-height:1.1}
+.kpi span{font-size:11.5px;color:#9fb0bc}
+.huni{margin-top:16px;display:grid;gap:7px}
+.huni div{display:flex;align-items:center;gap:10px;font-size:12.5px}
+.huni .c{height:22px;border-radius:6px;background:linear-gradient(90deg,#22d7ff,#0e8fb3);display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#06222b;font-weight:700;font-size:11.5px;min-width:34px}
+.huni label{width:92px;color:#a9b8c3;flex:none}
+table.tablo{width:100%;border-collapse:collapse;font-size:13px}
+.tablo th{text-align:left;font-weight:600;color:#8fa1ad;font-size:11.5px;text-transform:uppercase;letter-spacing:.6px;padding:8px 10px;border-bottom:1px solid #2f4250}
+.tablo td{padding:10px;border-bottom:1px solid #293a46;color:#e2eaf0;vertical-align:middle}
+.tablo td small{display:block;color:#8fa1ad;font-size:11.5px}
+.rozet{font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap;display:inline-block}
+.r-k{background:rgba(255,120,110,.14);color:#ff9d93}
+.r-y{background:rgba(34,215,255,.14);color:var(--altin2)}
+.r-g{background:rgba(88,196,140,.15);color:#79d6a6}
+.r-m{background:rgba(130,150,255,.15);color:#aab6ff}
+.saat{font-variant-numeric:tabular-nums;color:#a9b8c3}
+.ozet{font-family:Consolas,monospace;font-size:11.5px;color:#8fa1ad}
+.mesajkutu{margin:12px 6px 0;background:var(--lacivert2);border-radius:12px;padding:12px 14px;line-height:1.55}
+.mesajkutu b{color:var(--altin2)}
+.cubuk{display:flex;align-items:flex-end;gap:12px;height:120px;margin:22px 10px 26px}
+.cubuk div{flex:1;background:linear-gradient(180deg,#22d7ff,#0e8fb3);border-radius:6px 6px 0 0;position:relative}
+.cubuk span{position:absolute;bottom:-20px;left:0;right:0;text-align:center;font-size:11px;color:#8fa1ad}
+.bant{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--cizgi);border-bottom:1px solid var(--cizgi)}
+.bant div{padding:30px 22px;border-right:1px solid var(--cizgi)}
+.bant div:last-child{border-right:0}
+.bant b{display:block;font-family:"Sora",Inter,Arial,sans-serif;font-size:46px;color:var(--murekkep);line-height:1;font-weight:600;margin-bottom:6px}
+.bant span{font-size:14px;color:var(--gri)}
+.bant-not{font-size:13px;color:var(--gri);margin-top:12px}
+.kartlar{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.kart{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:28px}
+.kart .no{font-family:"Sora",Inter,Arial,sans-serif;font-size:19px;color:var(--altin);font-weight:700;margin-bottom:6px}
+.kart p{color:var(--gri);font-size:15.5px}
+.kart .once{margin-top:14px;padding-top:14px;border-top:1px solid var(--cizgi);font-size:14px;color:var(--metin)}
+.kart .once b{color:var(--murekkep)}
+.ikili{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+.kutu{border-radius:16px;padding:28px;border:1px solid var(--cizgi);background:var(--kart)}
+.kutu.uygun{background:var(--yesilz);border-color:#cfe5d8}
+.kutu ul{list-style:none;margin-top:6px}
+.kutu li{padding:8px 0 8px 26px;position:relative;font-size:15.5px}
+.kutu li::before{content:"";position:absolute;left:2px;top:18px;width:13px;height:2px;background:var(--altin)}
+.kutu.uygun li::before{background:var(--yesil)}
+.sekmeler{display:flex;gap:6px;flex-wrap:wrap;margin:34px 0 22px}
+.sekme{padding:10px 18px;border-radius:999px;border:1px solid var(--cizgi);background:var(--kart);font-weight:600;font-size:14.5px;cursor:pointer;color:var(--metin);font-family:inherit}
+.sekme[aria-selected="true"]{background:var(--murekkep);color:#fff;border-color:var(--murekkep)}
+.sekme-ic{display:none}
+.sekme-ic.acik{display:grid;grid-template-columns:1fr 330px;gap:30px;align-items:start}
+.sekme-ic aside p{color:var(--gri);font-size:15.5px;margin-bottom:14px}
+.sekme-ic aside ul{list-style:none}
+.sekme-ic aside li{padding:9px 0 9px 24px;position:relative;border-bottom:1px solid var(--cizgi);font-size:15px}
+.sekme-ic aside li::before{content:"";position:absolute;left:2px;top:19px;width:12px;height:2px;background:var(--altin)}
+.ornek{display:inline-block;margin-top:14px;font-size:12.5px;color:var(--gri)}
+.takvim{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.takvim .gun{background:var(--lacivert2);border-radius:10px;padding:8px;min-height:120px}
+.takvim .gun h6{font-size:11px;color:#8fa1ad;font-weight:600;margin-bottom:6px;text-transform:uppercase}
+.takvim .ici{border-radius:7px;padding:6px 7px;font-size:11.5px;margin-bottom:6px;line-height:1.35;background:#2c3e4b}
+.takvim .ici b{display:block;font-size:10.5px;letter-spacing:.4px;text-transform:uppercase;margin-bottom:2px}
+.t-reels b{color:#ff9d93}.t-kar b{color:var(--altin2)}.t-hik b{color:#aab6ff}.t-rek b{color:#79d6a6}
+.surec{margin-top:44px;border-top:1px solid var(--cizgi)}
+.sadim{display:grid;grid-template-columns:70px 1.1fr 1fr 1fr 150px;gap:22px;padding:24px 0;border-bottom:1px solid var(--cizgi);align-items:start}
+.sadim .no{font-family:"Sora",Inter,Arial,sans-serif;font-size:34px;color:var(--altin);font-weight:700;line-height:1}
+.sadim h3{font-size:25px;margin-bottom:4px}
+.sadim p{color:var(--gri);font-size:15px}
+.sadim .kol b{display:block;font-size:11.5px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--altin);margin-bottom:4px}
+.sadim .kol span{font-size:14.5px;color:var(--metin)}
+.sadim .sure{font-size:13.5px;font-weight:600;color:var(--murekkep);background:var(--sariz);border-radius:999px;padding:6px 12px;justify-self:start}
+.olcum{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.olcum .gun{background:var(--lacivert);color:#e2eaf0;border-radius:16px;padding:28px}
+.olcum .gun b{font-family:"Sora",Inter,Arial,sans-serif;font-size:44px;color:var(--altin2);line-height:1;display:block}
+.olcum .gun h3{color:#fff;margin:10px 0 8px;font-size:23px}
+.olcum .gun li{list-style:none;padding:6px 0 6px 18px;position:relative;font-size:14.5px;color:#cbd6de}
+.olcum .gun li::before{content:"";position:absolute;left:0;top:16px;width:9px;height:2px;background:var(--altin2)}
+.durum{font-size:11.5px;font-weight:700;letter-spacing:.5px;padding:5px 11px;border-radius:999px;white-space:nowrap;display:inline-block}
+.d-var{background:var(--yesilz);color:var(--yesil)}
+.d-pilot{background:var(--sariz);color:#7a5a12}
+.d-yol{background:var(--maviz);color:var(--mavi)}
+.cozumler{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:44px}
+.cozum{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:30px;display:flex;flex-direction:column;gap:12px}
+.cozum .ust{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.cozum .sektor{font-size:12.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--altin)}
+.cozum p{color:var(--gri);font-size:15.5px}
+.cozum ul{list-style:none}
+.cozum li{padding:7px 0 7px 22px;position:relative;font-size:15px;border-top:1px solid var(--cizgi)}
+.cozum li::before{content:"";position:absolute;left:0;top:18px;width:11px;height:2px;background:var(--altin)}
+.aciklama{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font-size:13.5px;color:var(--gri);align-items:center}
+.kanit{background:var(--lacivert);color:#e2eaf0}
+.kanit h2,.kanit h3{color:#fff}
+.kanit .giris{color:#b4c2cc}
+.kanit .ust-etiket{color:var(--altin2)}
+.kanit-iz{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.kanit-k{background:var(--lacivert2);border-radius:16px;padding:28px;border:1px solid #2f4250}
+.kanit-k b.sayi{display:block;font-family:"Sora",Inter,Arial,sans-serif;font-size:50px;color:var(--altin2);line-height:1;margin-bottom:10px;font-weight:600}
+.kanit-k p{color:#b4c2cc;font-size:15px}
+.kanit-k a{color:#fff;font-weight:600;text-decoration:none;border-bottom:1px solid #4a6273;display:inline-block;margin-top:12px;font-size:14.5px}
+.deger{margin-top:20px;background:linear-gradient(135deg,#24343f,#18232c);border:1px solid #334a5a;border-radius:20px;padding:44px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.deger p{color:#cbd6de;font-size:16.5px}
+.deger .vurgu{font-family:"Sora",Inter,Arial,sans-serif;font-size:25px;color:var(--altin2);line-height:1.35}
+.kanit .durust{margin-top:24px;font-size:14.5px;color:#a9b8c3;max-width:860px}
+.gtablo{width:100%;border-collapse:collapse;margin-top:40px;background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;overflow:hidden}
+.gtablo th{text-align:left;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--gri);padding:14px 20px;border-bottom:1px solid var(--cizgi);background:#eef2f6}
+.gtablo td{padding:18px 20px;border-bottom:1px solid var(--cizgi);vertical-align:top;font-size:15.5px}
+.gtablo tr:last-child td{border-bottom:0}
+.gtablo td b{display:block;color:var(--murekkep);font-family:"Sora",Inter,Arial,sans-serif;font-size:22px;font-weight:600;line-height:1.2;margin-bottom:3px}
+.gtablo td span{color:var(--gri);font-size:15px}
+.gtablo td.dk{white-space:nowrap;width:1%}
+.veri{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+.ekip{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
+.uye .foto{aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:var(--lacivert);display:flex;align-items:center;justify-content:center}
+.uye .foto img{width:100%;height:100%;object-fit:cover}
+.uye .bas{font-family:"Sora",Inter,Arial,sans-serif;font-size:72px;color:var(--altin2)}
+.uye .rol{font-size:12px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--altin);margin:16px 0 4px}
+.uye h3{font-size:27px}
+.uye p{color:var(--gri);font-size:15px}
+.uye .gorev{margin-top:8px;font-size:14px;color:var(--metin)}
+.dinle{margin-top:12px;display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border-radius:999px;border:1px solid var(--cizgi);background:var(--kart);font-size:14px;font-weight:600;cursor:pointer;color:var(--murekkep);font-family:inherit}
+.dinle .oynat{width:26px;height:26px;border-radius:50%;background:var(--murekkep);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px}
+.dinle.caliyor .oynat{background:var(--altin)}
+.dalga{display:inline-flex;gap:2px;align-items:center;height:16px}
+.dalga i{width:3px;background:#a9b8c3;border-radius:2px;height:5px}
+.dinle.caliyor .dalga i{animation:dalga 1s infinite ease-in-out;background:var(--altin)}
+.dalga i:nth-child(2){animation-delay:.1s}.dalga i:nth-child(3){animation-delay:.2s}.dalga i:nth-child(4){animation-delay:.3s}.dalga i:nth-child(5){animation-delay:.4s}
+@keyframes dalga{0%,100%{height:4px}50%{height:15px}}
+.not{margin-top:22px;font-size:14px;color:var(--gri);max-width:860px}
+.soz{margin-top:44px;border-left:3px solid var(--altin);padding:6px 0 6px 26px;font-family:"Sora",Inter,Arial,sans-serif;font-size:clamp(24px,2.8vw,34px);color:var(--murekkep);line-height:1.3;max-width:900px}
+.paketler{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.paket{background:var(--kart);border:1px solid var(--cizgi);border-radius:18px;padding:32px;display:flex;flex-direction:column}
+.paket.one{background:var(--lacivert);color:#e7eef4;border-color:var(--lacivert)}
+.paket.one h3{color:#fff}
+.paket .etiket{font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--altin);margin-bottom:10px}
+.paket.one .etiket{color:var(--altin2)}
+.paket .acik{color:var(--gri);font-size:15px}
+.paket.one .acik{color:#b4c2cc}
+.paket ul{list-style:none;margin:22px 0 26px;flex:1}
+.paket li{padding:9px 0;border-bottom:1px solid var(--cizgi);font-size:15px}
+.paket.one li{border-color:#2f4250}
+.paket .dugme{align-self:flex-start}
+details{border-bottom:1px solid var(--cizgi);padding:20px 0}
+summary{cursor:pointer;font-family:"Sora",Inter,Arial,sans-serif;font-size:24px;color:var(--murekkep);font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:Inter,sans-serif;font-size:22px;color:var(--altin)}
+details[open] summary::after{content:"–"}
+details p{color:var(--gri);margin-top:10px;max-width:820px}
+.cta{background:var(--lacivert);color:#e7eef4;border-radius:24px;padding:56px;display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:start}
+.cta h2{color:#fff}
+.cta p{color:#b4c2cc}
+.cta .bilgi{margin-top:30px;padding-top:24px;border-top:1px solid #2f4250}
+.cta .bilgi p{margin:5px 0;font-size:15.5px}
+.cta .bilgi a{color:#fff;text-decoration:none;font-weight:600}
+form.kesif{background:var(--lacivert2);border:1px solid #314655;border-radius:18px;padding:28px;display:grid;gap:14px}
+form.kesif label{font-size:13px;font-weight:600;color:#cbd6de;display:block;margin-bottom:6px}
+form.kesif input,form.kesif select,form.kesif textarea{width:100%;background:#15202a;border:1px solid #35495a;border-radius:10px;padding:12px 14px;color:#fff;font:400 15.5px Inter,sans-serif}
+form.kesif textarea{min-height:104px;resize:vertical}
+form.kesif input::placeholder,form.kesif textarea::placeholder{color:#7d909d}
+form.kesif .iki{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form.kesif .yol{display:flex;gap:10px;flex-wrap:wrap}
+form.kesif .yol .dugme{flex:1;justify-content:center}
+form.kesif .dugme.cizgi{background:transparent;border-color:#4a6273;color:#fff}
+form.kesif small{font-size:12.5px;color:#9fb0bc;line-height:1.5}
+form.kesif small a{color:#cbd6de}
+.hata{color:#ff9d93;font-size:13.5px;min-height:18px}
+footer{padding:54px 0 60px;color:var(--gri);font-size:14px;border-top:1px solid var(--cizgi);margin-top:80px}
+footer .ust{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px}
+footer h5{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:var(--murekkep);margin-bottom:10px}
+footer p,footer li{margin:4px 0;list-style:none}
+footer a{text-decoration:none}
+footer a:hover{color:var(--altin)}
+footer .alt{margin-top:34px;padding-top:20px;border-top:1px solid var(--cizgi);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px}
+.belir{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+.belir.gorundu,.statik .belir{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.belir{opacity:1;transform:none;transition:none}.canli .nokta,.dinle .dalga i{animation:none}html{scroll-behavior:auto}}
+@media (max-width:1080px){nav{gap:16px}nav a{font-size:14px}.sadim{grid-template-columns:54px 1fr 1fr;row-gap:12px}.sadim .ana{grid-column:2 / -1}.sadim .sure{grid-column:2 / -1}}
+@media (max-width:980px){.hero .izgara,.sekme-ic.acik,.cta,.deger{grid-template-columns:1fr}.ekip{grid-template-columns:repeat(2,1fr)}.paketler,.kartlar,.olcum,.kanit-iz,.veri{grid-template-columns:1fr}.cozumler,.ikili{grid-template-columns:1fr}.bant{grid-template-columns:1fr 1fr}.bant div:nth-child(2){border-right:0}.bant div:nth-child(-n+2){border-bottom:1px solid var(--cizgi)}footer .ust{grid-template-columns:1fr}
+  .menu-d{display:inline-block}nav{display:none;position:absolute;left:0;right:0;top:68px;background:var(--zemin);border-bottom:1px solid var(--cizgi);flex-direction:column;align-items:flex-start;padding:16px 24px 22px;gap:14px}nav.acik{display:flex}nav a{font-size:16px}}
+@media (max-width:640px){section{padding:72px 0}.kpi{grid-template-columns:1fr 1fr}.takvim{grid-template-columns:repeat(2,1fr)}.cta{padding:30px 22px}.deger{padding:28px 22px}.tablo .gizle{display:none}.bant b{font-size:36px}.bant div{padding:22px 14px}.ekip{gap:16px}.sadim{grid-template-columns:40px 1fr}.sadim .kol{grid-column:2}.sadim .no{font-size:28px}form.kesif .iki{grid-template-columns:1fr}.gtablo th:nth-child(2),.gtablo td:nth-child(2){display:none}.gtablo td,.gtablo th{padding:14px}.uye h3{font-size:23px}.uye .bas{font-size:54px}}
+.hero .izgara>*,.sekme-ic>*,.cta>*,.deger>*{min-width:0}
+.panel .ic{overflow-x:auto}
+@media (max-width:380px){.kap{padding:0 16px}.tablo{font-size:12px}.tablo td,.tablo th{padding:8px 5px}.rozet{white-space:normal}.panel .bar b{margin-left:4px;font-size:12px}.gtablo td.dk{white-space:normal}.durum{white-space:normal}.dugme{padding:13px 18px}.ekip{grid-template-columns:1fr 1fr;gap:12px}.uye .rol{letter-spacing:.5px;font-size:11px}.dinle{padding:6px 10px 6px 6px;font-size:13px}.dinle .dalga{display:none}}
+.uye{min-width:0}
+
+/* ── marka giydirme (13 Eki 2026): onaylı logo paleti ve tipografi yönü ── */
+h1{font-size:clamp(33px,4.5vw,56px);line-height:1.1;letter-spacing:-1.1px;font-weight:600}
+h2{font-size:clamp(26px,3.3vw,40px);line-height:1.16;letter-spacing:-.7px}
+h3{font-size:19.5px;line-height:1.32;letter-spacing:-.2px}
+.ust-etiket,h4{letter-spacing:2.6px}
+.logo{display:flex;align-items:center}
+.logo img{height:46px;width:auto}
+.hero .alt{font-size:clamp(16.5px,1.75vw,20.5px);font-weight:500;color:var(--altin);letter-spacing:.1px;line-height:1.45}
+.bant b{font-size:36px;letter-spacing:-.8px}
+.kpi b{font-size:22px}
+.kart .no{font-size:14px;letter-spacing:1.6px}
+.sadim .no{font-size:24px}
+.sadim h3{font-size:19.5px}
+.olcum .gun b{font-size:36px}
+.olcum .gun h3{font-size:19.5px}
+.kanit-k b.sayi{font-size:40px;letter-spacing:-.8px}
+.deger .vurgu{font-size:19px;font-weight:500;line-height:1.6}
+.gtablo td b{font-size:17px;line-height:1.3}
+.uye h3{font-size:20.5px}
+.uye .bas{font-size:50px;letter-spacing:2px}
+.soz{font-size:clamp(19px,2.2vw,26px);font-weight:500;line-height:1.42;letter-spacing:-.3px}
+summary{font-size:18px;line-height:1.35}
+.dugme.koyu:hover{background:#0f171e}
+.dugme.altin{box-shadow:0 0 0 0 rgba(34,215,255,0)}
+.dugme.altin:hover{box-shadow:0 6px 24px rgba(34,215,255,.28)}
+.hero{background:radial-gradient(900px 420px at 86% 8%,rgba(34,215,255,.10),transparent 70%)}
+.cta,.kanit{background-image:radial-gradient(700px 320px at 92% 0%,rgba(34,215,255,.12),transparent 70%)}
+footer .flogo img{height:34px;width:auto;margin-bottom:12px}
+@media (max-width:640px){.bant b{font-size:29px}.uye h3{font-size:17.5px}.uye .bas{font-size:38px}.sadim .no{font-size:21px}.logo img{height:34px}.kanit-k b.sayi{font-size:34px}}
+
+.moduller{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.modul{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.modul.one{border-color:#9adff0;box-shadow:0 10px 34px rgba(34,215,255,.13)}
+.modul .ust{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.modul .kod{font:600 12px "Sora",Inter,sans-serif;letter-spacing:2.2px;text-transform:uppercase;color:var(--altin)}
+.modul p{color:var(--gri);font-size:15.5px}
+.modul ul{list-style:none;margin-top:2px}
+.modul li{padding:7px 0 7px 22px;position:relative;font-size:15px;border-top:1px solid var(--cizgi)}
+.modul li::before{content:"";position:absolute;left:0;top:18px;width:11px;height:2px;background:var(--altin)}
+.modul .sinir{margin-top:auto;padding-top:12px;border-top:1px solid var(--cizgi);font-size:13.5px;color:var(--metin)}
+.modul .sinir b{color:var(--murekkep)}
+@media (max-width:980px){.moduller{grid-template-columns:1fr}}
+
+.mgrup{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:44px 0 0;padding-top:22px;border-top:1px solid var(--cizgi)}
+.mgrup h3{margin:0;font-size:21px}
+.mgrup span{color:var(--gri);font-size:15px}
+.moduller{margin-top:18px}
+.modul{padding:24px}
+.modul h3{font-size:18.5px;margin-bottom:0}
+.modul p{font-size:15px}
+.modul li{font-size:14.5px}
+.d-kul{background:#e2f6fb;color:#066a84}
+@media (min-width:981px){.moduller{grid-template-columns:repeat(3,1fr)}}
+
+.ssekler{display:flex;gap:6px;flex-wrap:wrap;margin:30px 0 20px}
+.ssek{padding:10px 18px;border-radius:999px;border:1px solid var(--cizgi);background:var(--kart);font-weight:600;font-size:14.5px;cursor:pointer;color:var(--metin);font-family:inherit}
+.ssek[aria-selected="true"]{background:var(--lacivert);color:#fff;border-color:transparent}
+.ssek-ic{display:none}.ssek-ic.acik{display:block}
+.senaryo-ust{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}.senaryo-ust h3{margin:0;font-size:22px}
+.senaryo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.senaryo .sutun{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:20px;min-width:0}
+.senaryo .adim{display:block;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--altin);margin-bottom:8px}
+.senaryo .s1 .adim{color:#9a4b2f}.senaryo ul{margin:0;padding-left:18px}.senaryo li{font-size:15px;margin:6px 0}
+.senaryo .kucuk-not{font-size:13px;color:var(--gri);margin:10px 0 0}
+.senaryo-d{margin-top:16px;display:inline-block}
+.dortlu{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tum-moduller{margin-top:28px}.tum-moduller>summary{cursor:pointer;font-weight:700;font-size:16px;padding:14px 18px;border:1px solid var(--cizgi);border-radius:12px;background:var(--kart);list-style:none}
+.tum-moduller>summary::-webkit-details-marker{display:none}.tum-moduller>summary::after{content:" ▾"}.tum-moduller[open]>summary::after{content:" ▴"}
+@media (max-width:860px){.senaryo{grid-template-columns:1fr}.dortlu{grid-template-columns:1fr}}
+
+/* 21 Eki — #nasil kaydırma süreci (scroll-craft ilkeleri; yalnız bu bölüm). İmza: hat 4. adımdaki ONAY KAPISINDA bekler. */
+.sc-nasil{--p:0;--kapi:.5;position:relative}
+.sc-nasil .nasil-pano{display:none}
+@media (min-width:980px){
+  .sc-nasil{display:grid;grid-template-columns:250px 1fr;gap:44px;border-top:0}
+  .sc-nasil .nasil-liste{border-top:1px solid var(--cizgi)}
+  .sc-nasil .sadim{grid-template-columns:52px 1.15fr 1fr 1fr 128px;gap:18px}
+  .sc-nasil .nasil-pano{display:block;position:sticky;top:108px;align-self:start;padding-top:18px}
+  .np-no{font-family:"Sora",Inter,Arial,sans-serif;font-weight:700;font-size:112px;line-height:.9;color:var(--altin);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+  .np-ad{font-family:"Sora",Inter,Arial,sans-serif;font-size:24px;font-weight:600;color:var(--murekkep);margin:10px 0 22px;min-height:62px}
+  .np-ray{position:relative;height:300px;width:44px;margin-left:6px}
+  .np-ray:before{content:"";position:absolute;left:21px;top:0;bottom:0;width:2px;background:var(--cizgi)}
+  .np-dolu{position:absolute;left:21px;top:0;width:2px;height:100%;background:var(--altin);transform-origin:top;transform:scaleY(var(--p))}
+  .np-dug{position:absolute;left:14px;width:16px;height:16px;border-radius:50%;background:var(--zemin);border:2px solid var(--cizgi);top:calc(var(--i) * 16.666% - 8px);transition:border-color .3s,background-color .3s,transform .3s}
+  .np-dug.gecti{border-color:var(--altin);background:var(--altin)}
+  .np-dug.simdi{transform:scale(1.35);border-color:var(--altin);background:var(--kart)}
+  .np-kapi{position:absolute;left:0;top:calc(50% - 22px);width:44px;height:44px;border-radius:12px;background:var(--kart);border:2px solid var(--murekkep);display:grid;place-items:center;box-shadow:0 6px 18px rgba(27,39,50,.12);transition:border-color .35s,background-color .35s}
+  .np-kapi svg{width:20px;height:20px}
+  .np-kapi .k-acik{display:none}
+  .sc-nasil.kapi-acik .np-kapi{border-color:var(--yesil);background:var(--yesilz)}
+  .sc-nasil.kapi-acik .np-kapi .k-kapali{display:none}
+  .sc-nasil.kapi-acik .np-kapi .k-acik{display:block}
+  .np-not{margin-top:18px;font-size:13.5px;color:var(--gri);max-width:220px}
+  .np-not b{color:var(--murekkep)}
+}
+.sc-nasil .sadim{transition:opacity .35s ease,transform .35s ease}
+.sc-nasil.canli .sadim{opacity:.42}
+.sc-nasil.canli .sadim.simdi,.sc-nasil.canli .sadim.gecti{opacity:1}
+.sc-nasil.canli .sadim.simdi{transform:translateX(6px)}
+.sc-nasil .sadim.kapi-adim .no:after{content:"onay kapısı";display:block;font-family:Inter,Arial,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--yesil);margin-top:8px;line-height:1.2}
+@media (max-width:979px){
+  .sc-nasil .nasil-liste{position:relative;padding-left:22px}
+  .sc-nasil .nasil-liste:before,.sc-nasil .nasil-liste:after{content:"";position:absolute;left:4px;top:0;bottom:0;width:2px;background:var(--cizgi)}
+  .sc-nasil .nasil-liste:after{background:var(--altin);transform-origin:top;transform:scaleY(var(--p))}
+  .sc-nasil.canli .sadim.simdi{transform:none}
+}
+.zaman-ekseni{position:relative;height:10px;border-radius:999px;background:var(--cizgi);margin:40px 0 -14px;overflow:hidden}
+.zaman-ekseni i{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--altin);transform-origin:left;transform:scaleX(calc(var(--g) / 90 * var(--z,1)));opacity:calc(.35 + var(--g) / 140)}
+.zaman-ekseni em{position:absolute;top:0;width:2px;height:100%;background:var(--kart);left:calc(var(--g) / 90 * 100%)}
+@media (prefers-reduced-motion:reduce){.sc-nasil .sadim{transition:none;opacity:1!important;transform:none!important}.np-dolu,.sc-nasil .nasil-liste:after{transform:none}.zaman-ekseni i{transform:scaleX(calc(var(--g) / 90))}}
+.statik .sc-nasil .sadim{opacity:1!important;transform:none!important}
+</style>
+</head>
+<body>
+<a class="atla" href="#icerik">İçeriğe geç</a>
+<header id="ust"><div class="kap">
+  <a class="logo" href="#" aria-label="Aura Sonic Core ana sayfa"><img src="img/logo.png" alt="Aura Sonic Core" width="617" height="132"></a>
+  <button class="menu-d" id="menuD" aria-expanded="false" aria-controls="menu">Menü</button>
+  <nav id="menu" aria-label="Ana menü"><a href="#sorun">Sorununuz</a><a href="#cozumler">Çözümler</a><a href="#nasil">Nasıl çalışıyoruz</a><a href="#kanit">Kanıt</a><a href="#guvence">Güvence</a><a href="#moduller">Modüller</a><a href="#paketler">Paketler</a><a href="#ekip">Ekip</a>
+    <a class="dugme koyu kucuk" href="#iletisim">Keşif görüşmesi</a></nav>
+</div></header>
+
+<main id="icerik">
+<section class="hero"><div class="kap izgara">
+  <div>
+    <div class="ust-etiket">Aura Sonic Core</div>
+    <h1>İşletmenizin Süper Zekâ Çalışma Sistemi</h1>
+    <p class="alt">Çoklu uzmanlık. Tek koordinasyon. İnsan kontrolü. Ölçülebilir değer.</p>
+    <p class="giris">İşletmenizi dinleyen, ihtiyaçlarını analiz eden, alternatifleri araştıran ve size özel çözümler geliştiren dijital yönetim ve üretim altyapısı. Uzman ajanlar projelerinizi planlar, iş akışlarınızı destekler ve sonuçları ölçmenize yardımcı olur. Kritik adımlar sizin onayınızla ilerler.</p>
+    <div class="dugmeler">
+      <a class="dugme koyu" href="#iletisim">İşletmenizin Potansiyelini Keşfedelim</a>
+      <a class="dugme acik" href="#nasil">Nasıl Çalışıyoruz?</a>
+    </div>
+    <div class="canli" id="canli"><span class="nokta"></span><span>Aura Sonic radyoları bu altyapıyla şu an yayında</span></div>
+  </div>
+  <div class="belir">
+    <div class="panel" aria-label="Örnek panel görünümü">
+      <div class="bar"><i></i><i></i><i></i><b>Müşteri kazanım paneli · örnek ay</b><span class="sag">Temsili veri</span></div>
+      <div class="ic">
+        <div class="kpi">
+          <div><b>312</b><span>gelen talep</span></div>
+          <div><b>%96</b><span>24 saatte dönüş</span></div>
+          <div><b>141</b><span>görüşme</span></div>
+          <div><b>46</b><span>sonuçlanan iş</span></div>
+        </div>
+        <div class="huni">
+          <div><label>Gelen talep</label><div class="c" style="width:100%">312</div></div>
+          <div><label>İlk dönüş</label><div class="c" style="width:95%">298</div></div>
+          <div><label>Görüşme</label><div class="c" style="width:45%">141</div></div>
+          <div><label>Teklif / ön kayıt</label><div class="c" style="width:22%">68</div></div>
+          <div><label>Sonuç</label><div class="c" style="width:15%">46</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="panel-not">Panel tasarımından örnek görünüm; temsili veridir, gerçek bir müşteriye ait değildir. Sonuç sizin işinize göre: kayıt, rezervasyon, sözleşme ya da satış.</p>
+  </div>
+</div></section>
+
+<div class="kap">
+  <div class="bant belir">
+    <div><b>4</b><span>radyo kanalı bu altyapıyla 7/24 yayında</span></div>
+    <div><b>2.415</b><span>eserin sahipliği Bitcoin zaman damgasıyla kayıtlı</span></div>
+    <div><b>5.000+</b><span>silinemez, değiştirilemez işlem kaydı</span></div>
+    <div><b>76</b><span>kayıt altına alınmış yönetim kararı</span></div>
+  </div>
+  <p class="bant-not">Kendi işletmemizden ölçülen değerler · 2 Kasım 2026. <a href="#kanit">Nasıl ölçtüğümüzü görün</a>.</p>
+</div>
+
+<section id="sorun" class="ayrac"><div class="kap">
+  <div class="ust-etiket belir">Önce sorununuz</div>
+  <h2 class="belir">Modül değil, işinizin sorunu ile başlarız.</h2>
+  <p class="giris belir">Sektörünüzü seçin: bugün yaşadığınız sorun, Core'un bunu nasıl ele aldığı ve sonucu neyle ölçeceğimiz yan yana. Rakam sözü vermeyiz; ölçütü işe başlamadan birlikte yazarız.</p>
+  <div class="ssekler" role="tablist" aria-label="Sektörler">
+    <button class="ssek" role="tab" aria-selected="true" aria-controls="ss-egitim" data-ss="ss-egitim">Eğitim kurumu</button>
+    <button class="ssek" role="tab" aria-selected="false" aria-controls="ss-restoran" data-ss="ss-restoran">Restoran ve kafe</button>
+    <button class="ssek" role="tab" aria-selected="false" aria-controls="ss-mimarlik" data-ss="ss-mimarlik">Mimarlık ve yapı</button>
+    <button class="ssek" role="tab" aria-selected="false" aria-controls="ss-medya" data-ss="ss-medya">Medya ve içerik</button>
+    <button class="ssek" role="tab" aria-selected="false" aria-controls="ss-hizmet" data-ss="ss-hizmet">Hizmet işletmesi</button>
+  </div>
+  <div class="ssek-ic acik" id="ss-egitim" role="tabpanel">
+    <div class="senaryo-ust"><h3>Eğitim kurumu</h3><span class="durum d-var">Sunuluyor · ilk kurulum 2026 sonbaharı</span></div>
+    <div class="senaryo">
+      <div class="sutun s1"><span class="adim">1 · Sorun</span><ul><li>Başvurular formdan, WhatsApp'tan, telefondan ve reklamdan ayrı ayrı geliyor; geç dönülen aday başka kuruma gidiyor.</li><li>Reklama harcanan paranın kaç kayda dönüştüğü bilinmiyor.</li><li>Veli ve aday takibi, hatırlatmalar elle ve kişinin hafızasında.</li></ul></div>
+      <div class="sutun s2"><span class="adim">2 · Core'un çözümü</span><ul><li><b>Başvuru hattı:</b> programa özel sayfa, kısa form, WhatsApp düğmesi</li><li><b>Karşılama ve takip:</b> tek aday defteri, her sabah dönülecekler listesi, 5. ve 10. gün hatırlatmaları</li><li><b>Reklam ve sosyal medya:</b> içerik takvimi, her reklama kaynak etiketi</li><li><b>Raporlama:</b> başvurudan kesin kayda haftalık huni</li></ul></div>
+      <div class="sutun s3"><span class="adim">3 · Ölçeceğimiz sonuç</span><ul><li>Başvurudan ilk dönüşe geçen süre</li><li>Başvuru → görüşme → ön kayıt → kesin kayıt oranları</li><li>Kanal başına aday ve kayıt maliyeti</li></ul><p class="kucuk-not">İlk 30 günde başlangıç değerlerinizi ölçer, 90. günde aynı ölçüyle karşılaştırırız.</p></div>
+    </div>
+    <a class="dugme koyu senaryo-d" href="#iletisim" data-sektor="Eğitim" data-ad="Eğitim kurumu">Bu senaryoyu konuşalım</a>
+  </div>
+  <div class="ssek-ic" id="ss-restoran" role="tabpanel">
+    <div class="senaryo-ust"><h3>Restoran ve kafe</h3><span class="durum d-var">Sunuluyor · yerel görünürlük modülü pilot</span></div>
+    <div class="senaryo">
+      <div class="sutun s1"><span class="adim">1 · Sorun</span><ul><li>Hafta içi masalar boş; rezervasyon telefonda kaçıyor, kaydı tutulmuyor.</li><li>Haritalarda ve aramalarda geride kalıyorsunuz, yorum sayısı az.</li><li>Sosyal medya düzensiz; hangi paylaşımın müşteri getirdiği belli değil.</li></ul></div>
+      <div class="sutun s2"><span class="adim">2 · Core'un çözümü</span><ul><li><b>Rezervasyon ve talep hattı:</b> WhatsApp ve kısa form, her talep defterde</li><li><b>Yerel görünürlük:</b> işletme profili düzeni, izinli yorum isteme akışı</li><li><b>Sosyal medya:</b> haftalık menü ve etkinlik içeriği, onayınızla yayın</li><li><b>Raporlama:</b> haftalık talep, kaynak ve dönüş özeti</li></ul></div>
+      <div class="sutun s3"><span class="adim">3 · Ölçeceğimiz sonuç</span><ul><li>Haftalık rezervasyon talebi ve nereden geldiği</li><li>Talebe dönüş süresi</li><li>Yorum sayısı ve puanındaki değişim</li></ul><p class="kucuk-not">İlk 30 günde başlangıç değerlerinizi ölçer, 90. günde aynı ölçüyle karşılaştırırız.</p></div>
+    </div>
+    <a class="dugme koyu senaryo-d" href="#iletisim" data-sektor="Restoran ve kafe" data-ad="Restoran ve kafe">Bu senaryoyu konuşalım</a>
+  </div>
+  <div class="ssek-ic" id="ss-mimarlik" role="tabpanel">
+    <div class="senaryo-ust"><h3>Mimarlık ve yapı</h3><span class="durum d-kul">Kendi ofisimizde kullanılıyor</span></div>
+    <div class="senaryo">
+      <div class="sutun s1"><span class="adim">1 · Sorun</span><ul><li>Keşif ve teklif süreci uzun; talepler, revizyonlar ve teklifler dağınık.</li><li>Müşteriye sunum hazırlamak günler alıyor.</li><li>Proje kararları ve geçmiş, onu bilen kişiyle birlikte gidiyor.</li></ul></div>
+      <div class="sutun s2"><span class="adim">2 · Core'un çözümü</span><ul><li><b>Talep defteri:</b> siteden ve reklamdan gelen her talep, kimde ve hangi aşamada</li><li><b>Teklif ve sunum:</b> metraj, kapsam, fiyat tablosu ve kurumsal kimlikte teklif dosyası</li><li><b>Mimari görselleştirme:</b> projeyi yapılmadan gösteren görsel ve seçenek karşılaştırması</li><li><b>Kurum hafızası:</b> proje kararları kayıtlı; mimari karar her zaman mimarda</li></ul></div>
+      <div class="sutun s3"><span class="adim">3 · Ölçeceğimiz sonuç</span><ul><li>Talepten keşfe, keşiften teklife geçen süre</li><li>Teklifin sözleşmeye dönme oranı</li><li>Teklif başına revizyon sayısı</li></ul><p class="kucuk-not">İlk 30 günde başlangıç değerlerinizi ölçer, 90. günde aynı ölçüyle karşılaştırırız.</p></div>
+    </div>
+    <a class="dugme koyu senaryo-d" href="#iletisim" data-sektor="Mimarlık ve yapı" data-ad="Mimarlık ve yapı">Bu senaryoyu konuşalım</a>
+  </div>
+  <div class="ssek-ic" id="ss-medya" role="tabpanel">
+    <div class="senaryo-ust"><h3>Medya ve içerik</h3><span class="durum d-kul">Kendi işimizde kullanılıyor</span></div>
+    <div class="senaryo">
+      <div class="sutun s1"><span class="adim">1 · Sorun</span><ul><li>Düzenli içerik üretmek ve yayın akışını sürdürmek ekibi yoruyor.</li><li>Başlık, kapak, açıklama her seferinde elle hazırlanıyor.</li><li>Eser ve içerik sahipliğinin kanıtı dağınık.</li></ul></div>
+      <div class="sutun s2"><span class="adim">2 · Core'un çözümü</span><ul><li><b>Yayın otomasyonu:</b> 7/24 akış, program düzeni, arıza bekçileri</li><li><b>Video ve görsel üretim:</b> kısa video, kapak, altyazı ve kalite ölçümü</li><li><b>Çok dilli içerik:</b> aynı içeriğin Türkçe, İngilizce, İspanyolca sürümü</li><li><b>Telif ve belge kaydı:</b> parmak izi ve Bitcoin zaman damgası</li></ul></div>
+      <div class="sutun s3"><span class="adim">3 · Ölçeceğimiz sonuç</span><ul><li>Yayında kalma süresi ve kesinti sayısı</li><li>İçerik başına hazırlık süresi</li><li>İzlenme ve dinlenme süresi</li></ul><p class="kucuk-not">İlk 30 günde başlangıç değerlerinizi ölçer, 90. günde aynı ölçüyle karşılaştırırız.</p></div>
+    </div>
+    <a class="dugme koyu senaryo-d" href="#iletisim" data-sektor="Medya ve içerik" data-ad="Medya ve içerik">Bu senaryoyu konuşalım</a>
+  </div>
+  <div class="ssek-ic" id="ss-hizmet" role="tabpanel">
+    <div class="senaryo-ust"><h3>Hizmet işletmesi</h3><span class="durum d-var">Sunuluyor</span></div>
+    <div class="senaryo">
+      <div class="sutun s1"><span class="adim">1 · Sorun</span><ul><li>Randevu ve talepler kayboluyor; kimin döneceği belli değil.</li><li>İlk işten sonra müşteriyle bağ kopuyor, tekrar gelmiyor.</li><li>Ne kadar talep aldığınızı ve nereden geldiğini bilmiyorsunuz.</li></ul></div>
+      <div class="sutun s2"><span class="adim">2 · Core'un çözümü</span><ul><li><b>Randevu ve talep hattı:</b> WhatsApp ve kısa form, her talep defterde</li><li><b>Karşılama ve takip:</b> günlük dönülecekler listesi, hatırlatma metinleri</li><li><b>E-posta bülteni:</b> yalnız açık izin verenlere düzenli temas</li><li><b>Raporlama:</b> talep, kaynak ve sonuç tablosu</li></ul></div>
+      <div class="sutun s3"><span class="adim">3 · Ölçeceğimiz sonuç</span><ul><li>Talep sayısı ve kaynağı</li><li>Talebin randevuya ya da satışa dönme oranı</li><li>Tekrar gelen müşteri oranı</li></ul><p class="kucuk-not">İlk 30 günde başlangıç değerlerinizi ölçer, 90. günde aynı ölçüyle karşılaştırırız.</p></div>
+    </div>
+    <a class="dugme koyu senaryo-d" href="#iletisim" data-sektor="Perakende ve hizmet" data-ad="Hizmet işletmesi">Bu senaryoyu konuşalım</a>
+  </div>
+  <p class="not belir">Sektörünüz burada yoksa da başlangıç aynıdır: ücretsiz keşif görüşmesinde işinizin bugün nasıl yürüdüğünü dinler, sorunu birlikte tanımlarız.</p>
+</div></section>
+
+<section id="cozumler" class="ayrac"><div class="kap">
+  <div class="ust-etiket belir">Öne çıkan çözümler</div>
+  <h2 class="belir">Çoğu işletmenin ihtiyacı dört başlıkta toplanır.</h2>
+  <p class="giris belir">Her biri birkaç modülün birlikte çalışmasıdır. Yanında gerçek durumunu yazıyoruz; henüz çalışmayan bir özelliği çalışıyormuş gibi satmayız.</p>
+  <div class="cozumler dortlu">
+    <div class="cozum belir"><div class="ust"><span class="sektor">Her sektör</span><span class="durum d-var">Sunuluyor</span></div><h3>Müşteri kazanım hattı</h3><p>Reklamı ve içeriği gören kişinin başvurusundan sonucuna kadar her adım tek düzende.</p><ul><li>Başvuru / talep sayfası, kısa form, WhatsApp hattı</li><li>Tek defter, günlük dönülecekler listesi, hatırlatmalar</li><li>Reklam ve sosyal medya, kaynağıyla ölçülür</li><li>Kayıt, rezervasyon ya da satışa kadar huni raporu</li></ul></div>
+    <div class="cozum belir"><div class="ust"><span class="sektor">Proje ve hizmet işleri</span><span class="durum d-kul">Kendi ofisimizde kullanılıyor</span></div><h3>Teklif ve iş takibi</h3><p>Talepten keşfe, tekliften sözleşmeye; Aşkın İnşaat Mimarlık Yapı'nın kendi işleyişinde kullandığı düzen.</p><ul><li>Gelen her talep kimde, hangi aşamada</li><li>Metraj, kapsam ve fiyat tablosunda ajan desteği</li><li>Kurumsal kimlikte teklif ve sunum dosyası</li><li>Rakamların dayanağı ayrıca tutulur</li></ul></div>
+    <div class="cozum belir"><div class="ust"><span class="sektor">Medya ve markalar</span><span class="durum d-kul">Kendi işimizde kullanılıyor</span></div><h3>İçerik ve yayın üretimi</h3><p>Aura Sonic'in dört radyo kanalını ve kataloğunu yöneten üretim ve yayın hattı.</p><ul><li>Kısa video, kapak, görsel ve çok dilli metin</li><li>Yayın akışı, paketleme ve arıza bekçileri</li><li>Onaylamadığınız içerik yayına çıkmaz</li><li>Eser sahipliği kaydı ve zaman damgası</li></ul></div>
+    <div class="cozum belir"><div class="ust"><span class="sektor">Yönetim</span><span class="durum d-var">Sunuluyor</span></div><h3>Yönetim raporu ve kurum hafızası</h3><p>Kararlar kanıtla masanıza gelir; bilgi kişide değil kurumda kalır.</p><ul><li>Haftalık özet ve aylık yönetim raporu, kaynaklı</li><li>Mevcut durum ve rakip ölçümü</li><li>Karar ve kural kaydı; iş kaldığı yerden sürer</li><li>Ölçülemeyen ayrıca belirtilir</li></ul></div>
+  </div>
+  <div class="aciklama belir"><span><span class="durum d-var">Sunuluyor</span> bugün kurulabilir</span><span><span class="durum d-kul">Kullanımda</span> kendi işimizde çalışıyor, size uyarlanır</span><span>Geliştirilenler (çizim kontrol asistanı, sesli yönetici ajan, telefon asistanı) <a href="#moduller">modül listesinde</a> durumlarıyla yazıyor.</span></div>
+</div></section>
+
+<section id="kazanc"><div class="kap">
+  <div class="ust-etiket belir">İşletmenize ne kazandırır</div>
+  <h2 class="belir">Yapay zekâyı değil, işinizin sonucunu konuşuruz.</h2>
+  <p class="giris belir">Çoğu işletmede sorun teknoloji eksikliği değildir; başvurunun cevapsız kalması, reklam parasının nereye gittiğinin bilinmemesi, aynı işin her gün elle yeniden yapılmasıdır. Core bu yükleri alır, kararı size bırakır.</p>
+  <div class="kartlar">
+    <div class="kart belir"><div class="no">01</div><h3>Hiçbir başvuru cevapsız kalmaz</h3><p>Formdan, WhatsApp'tan, telefondan ve reklamdan gelen herkes tek defterde toplanır. Kime, ne zaman dönüleceği her sabah önünüzdedir.</p><p class="once"><b>Bugün:</b> mesajlar farklı telefonlarda, takip kişinin hafızasında.</p></div>
+    <div class="kart belir"><div class="no">02</div><h3>Reklam bütçesi ölçüye bağlanır</h3><p>Hangi kanalın gerçekten müşteri ya da kayıt getirdiğini görürsünüz. Beğeni ve gösterim değil; başvuru, görüşme ve sonuç sayılır.</p><p class="once"><b>Bugün:</b> harcama belli, karşılığı belirsiz.</p></div>
+    <div class="kart belir"><div class="no">03</div><h3>Tekrarlayan iş ekibinizin üstünden kalkar</h3><p>Günlük liste, hatırlatma metni, haftalık özet, içerik taslağı ajanlar tarafından hazırlanır. Ekibiniz hazırlamaz; okur, düzeltir, onaylar.</p><p class="once"><b>Bugün:</b> nitelikli insanlar tekrar işine saat harcıyor.</p></div>
+    <div class="kart belir"><div class="no">04</div><h3>Kararlar masanıza kanıtla gelir</h3><p>Her rapor kaynağını gösterir: hangi veriden, hangi tarihte, kim tarafından. Ölçülmeyen sonuç rapora girmez.</p><p class="once"><b>Bugün:</b> "iyi gidiyor" ile "ölçtük, şu kadar" arasındaki fark.</p></div>
+    <div class="kart belir"><div class="no">05</div><h3>Bilgi kişide değil kurumda kalır</h3><p>Kurallarınız, kararlarınız ve iş geçmişiniz kayıtlıdır. Bir çalışan ayrıldığında ya da bir yazılım değiştiğinde iş kaldığı yerden sürer.</p><p class="once"><b>Bugün:</b> süreç, onu bilen kişiyle birlikte gidiyor.</p></div>
+    <div class="kart belir"><div class="no">06</div><h3>Kontrol sizde kalır</h3><p>Müşteriye giden mesaj, yayın, ödeme gibi kritik adımlar onay kutunuza düşer. Onaylamadığınız iş tamamlanmaz; kimin neyi onayladığı kayıtlıdır.</p><p class="once"><b>Bugün:</b> ya her şeyi siz yapıyorsunuz ya da kontrolsüz gidiyor.</p></div>
+  </div>
+  <div class="ikili">
+    <div class="kutu uygun belir"><h4>Size uygunsa</h4><ul><li>Düzenli başvuru, aday ya da müşteri talebi alıyorsanız</li><li>Takip, hatırlatma ve raporlama elle yürüyorsa</li><li>Reklama para harcıyor ama sonucunu ölçemiyorsanız</li><li>Karar verecek ve onaylayacak bir yetkiliniz varsa</li></ul></div>
+    <div class="kutu belir"><h4>Henüz uygun olmayabilir</h4><ul><li>"Tek tuşla, insansız, her şeyi yapan" bir sistem arıyorsanız</li><li>Başvuruları karşılayacak bir sorumlu ayıramıyorsanız</li><li>Sonucu ölçmek için gereken veriyi paylaşmak istemiyorsanız</li><li>Garantili satış ya da kayıt sayısı bekliyorsanız</li></ul></div>
+  </div>
+  <p class="not belir">Sonuç sözü vermeyiz. Ölçütü işe başlamadan birlikte yazar, ilk 30 günde gerçek başlangıç değerlerinizi ölçer, sonrasını o değerlere göre değerlendiririz.</p>
+</div></section>
+
+<section id="nasil" class="ayrac"><div class="kap">
+  <div class="ust-etiket belir">Bizimle çalışınca ne olur</div>
+  <h2 class="belir">Nasıl Çalışıyoruz?</h2>
+  <p class="giris belir">Her işletmenin ihtiyacı farklıdır. Önce hedefi ve mevcut durumu birlikte netleştirir, ardından seçenekleri, maliyeti ve başarı ölçülerini karşılaştırırız. Uygulama kararları sizin onayınızla ilerler.</p>
+  <div class="surec sc-nasil"><div class="nasil-pano" aria-hidden="true"><div class="np-no">1</div><div class="np-ad">Keşif</div><div class="np-ray"><i class="np-dolu"></i><span class="np-dug" style="--i:0"></span><span class="np-dug" style="--i:1"></span><span class="np-dug" style="--i:2"></span><span class="np-dug" style="--i:3"></span><span class="np-dug" style="--i:4"></span><span class="np-dug" style="--i:5"></span><span class="np-dug" style="--i:6"></span><span class="np-kapi"><svg class="k-kapali" viewBox="0 0 24 24" fill="none" stroke="#1b2732" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><svg class="k-acik" viewBox="0 0 24 24" fill="none" stroke="#1f7a4d" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><p class="np-not"><b>Onay kapısı.</b> Süreç 4. adımda durur; siz onay vermeden uygulama başlamaz.</p></div><div class="nasil-liste">
+    <div class="sadim belir"><div class="no">1</div><div class="ana"><h3>Keşif</h3><p>İhtiyacınızı ve hedeflerinizi dinleriz.</p></div><div class="kol"><b>Sizden</b><span>Bir saatlik görüşme; işin bugün nasıl yürüdüğü.</span></div><div class="kol"><b>Elinize geçen</b><span>Görüşme özeti ve ilk gözlemlerimiz. Ücretsiz.</span></div><div class="sure">1 görüşme</div></div>
+    <div class="sadim belir"><div class="no">2</div><div class="ana"><h3>Analiz</h3><p>İş akışlarını, verileri ve uygun seçenekleri inceleriz.</p></div><div class="kol"><b>Sizden</b><span>Mevcut site, sosyal medya ve başvuru kanallarınıza bakış izni.</span></div><div class="kol"><b>Elinize geçen</b><span>Mevcut durum ölçümü: nerede kayıp var, rakipler ne yapıyor.</span></div><div class="sure">3–5 iş günü</div></div>
+    <div class="sadim belir"><div class="no">3</div><div class="ana"><h3>Plan ve Fizibilite</h3><p>Risk, maliyet ve beklenen değeri birlikte değerlendiririz.</p></div><div class="kol"><b>Sizden</b><span>Bütçe sınırı, kapasite ve öncelik bilgisi.</span></div><div class="kol"><b>Elinize geçen</b><span>Yazılı teklif: kapsam, kapsam dışı, fiyat, başarı ölçütü.</span></div><div class="sure">Yazılı teklif</div></div>
+    <div class="sadim belir"><div class="no">4</div><div class="ana"><h3>Onay</h3><p>Önemli karar ve erişimler siz onay vermeden uygulanmaz.</p></div><div class="kol"><b>Sizden</b><span>Yetkili ve yedek kişi; adlı, sınırlı erişim tanımları.</span></div><div class="kol"><b>Elinize geçen</b><span>Sözleşme ve veri işleme çerçevesi; hesaplar sizde kalır.</span></div><div class="sure">Sizin hızınızda</div></div>
+    <div class="sadim belir"><div class="no">5</div><div class="ana"><h3>Kontrollü Uygulama</h3><p>Uygun kapsamda pilot veya aşamalı çözüm geliştiririz.</p></div><div class="kol"><b>Sizden</b><span>İçerik onayı ve başvurulara dönüş.</span></div><div class="kol"><b>Elinize geçen</b><span>Test edilmiş kurulum; kabul testleri geçmeden canlıya çıkmaz.</span></div><div class="sure">Erişimden sonra ~2 hafta</div></div>
+    <div class="sadim belir"><div class="no">6</div><div class="ana"><h3>Ölçüm ve Doğrulama</h3><p>Çıktıyı, görev kayıtlarını ve sonuçları gerçek verilerle kontrol ederiz.</p></div><div class="kol"><b>Sizden</b><span>Kesinleşen satış ya da kayıtların işaretlenmesi.</span></div><div class="kol"><b>Elinize geçen</b><span>Haftalık özet, aylık yönetim raporu.</span></div><div class="sure">Her hafta · her ay</div></div>
+    <div class="sadim belir"><div class="no">7</div><div class="ana"><h3>İyileştirme</h3><p>Bulgulara göre sistemi birlikte geliştiririz.</p></div><div class="kol"><b>Sizden</b><span>Devam, düzeltme ya da durdurma kararı.</span></div><div class="kol"><b>Elinize geçen</b><span>90 günlük sonuç dosyası ve bir sonraki dönemin planı.</span></div><div class="sure">90. gün</div></div>
+  </div></div>
+
+  <div class="zaman-ekseni" aria-hidden="true"><i style="--g:90"></i><i style="--g:30"></i><i style="--g:7"></i><em style="--g:7"></em><em style="--g:30"></em></div>
+  <div class="olcum">
+    <div class="gun belir"><b>7</b><h3>İlk hafta</h3><ul><li>Yetkiler ve erişimler tanımlı</li><li>Başvuru hattı deneme ortamında</li><li>Test başvurusu uçtan uca izlenmiş</li></ul></div>
+    <div class="gun belir"><b>30</b><h3>Birinci ay</h3><ul><li>Gerçek başlangıç değerleri ölçülmüş</li><li>İlk dönüş süresi ve kanal dökümü</li><li>Hedefler bu değerlere göre yazılmış</li></ul></div>
+    <div class="gun belir"><b>90</b><h3>Üçüncü ay</h3><ul><li>Başvuru → görüşme → sonuç tablosu</li><li>Sonuç başına toplam maliyet</li><li>Devam, düzelt ya da durdur kararı</li></ul></div>
+  </div>
+</div></section>
+
+<section id="urun" class="ayrac"><div class="kap">
+  <div class="ust-etiket belir">Ürün turu</div>
+  <h2 class="belir">Ajanlarınızın işi, her sabah önünüzde.</h2>
+  <p class="giris belir">Kayıt, takip, içerik ve rapor tek düzende yürür. Aşağıdaki görünümler, bir eğitim kurumu için tasarlanan öğrenci kazanım hattından örnektir.</p>
+  <div class="sekmeler" role="tablist" aria-label="Ürün görünümleri">
+    <button class="sekme" role="tab" aria-selected="true" aria-controls="s1" data-s="s1">Karşılama ve takip</button>
+    <button class="sekme" role="tab" aria-selected="false" aria-controls="s2" data-s="s2">Raporlama</button>
+    <button class="sekme" role="tab" aria-selected="false" aria-controls="s3" data-s="s3">İçerik takvimi</button>
+    <button class="sekme" role="tab" aria-selected="false" aria-controls="s4" data-s="s4">Denetim kaydı</button>
+  </div>
+
+  <div class="sekme-ic acik" id="s1" role="tabpanel">
+    <div class="panel">
+      <div class="bar"><i></i><i></i><i></i><b>Bugün dönülecekler · örnek gün</b><span class="sag">Örnek veri</span></div>
+      <div class="ic" style="padding:6px 8px 12px">
+        <table class="tablo">
+          <tr><th>Aday</th><th>Program</th><th class="gizle">Kaynak</th><th class="gizle">Son temas</th><th>Sonraki adım</th></tr>
+          <tr><td>Aday A<small>17 yaş · velisi kayıtlı</small></td><td>İç Mimarlık</td><td class="gizle">Web formu</td><td class="gizle saat">dün 18:42</td><td><span class="rozet r-k">İlk dönüş · bugün</span></td></tr>
+          <tr><td>Aday B<small>Lise 3</small></td><td>Güzel Sanatlara Hazırlık</td><td class="gizle">WhatsApp</td><td class="gizle saat">9 Eki</td><td><span class="rozet r-y">5. gün hatırlatma</span></td></tr>
+          <tr><td>Aday C<small>Üniversite 2</small></td><td>Moda Tasarımı</td><td class="gizle">Instagram reklam</td><td class="gizle saat">13 Eki</td><td><span class="rozet r-g">Tanışma · Cmt 11:00</span></td></tr>
+          <tr><td>Aday D<small>Mezun</small></td><td>Portfolyo Hazırlama</td><td class="gizle">Google arama</td><td class="gizle saat">4 Eki</td><td><span class="rozet r-y">10. gün son hatırlatma</span></td></tr>
+          <tr><td>Aday E<small>Lise 2 · velisi kayıtlı</small></td><td>Desen ve Yağlı Boya</td><td class="gizle">Tavsiye</td><td class="gizle saat">12 Eki</td><td><span class="rozet r-m">Fiyat bilgisi gönder</span></td></tr>
+          <tr><td>Aday F<small>Çalışan</small></td><td>2D ve 3D Tasarım</td><td class="gizle">Web formu</td><td class="gizle saat">11 Eki</td><td><span class="rozet r-g">Ön kayıt · belge bekliyor</span></td></tr>
+        </table>
+        <div class="mesajkutu"><b>Hazır mesaj · Aday B · onayınıza hazır</b><br>Merhaba, geçen hafta Güzel Sanatlara Hazırlık programımızı sormuştunuz. Cumartesi 11:00'deki ücretsiz tanışma dersimize sizi de bekleriz; uygunsanız yerinizi ayıralım.</div>
+      </div>
+    </div>
+    <aside>
+      <h3>Karşılama ve takip ajanı</h3>
+      <p>Formdan, WhatsApp'tan ve reklamlardan gelen her aday tek defterde toplanır; hiçbiri unutulmaz.</p>
+      <ul><li>Her sabah "bugün dönülecekler" listesi</li><li>5. ve 10. gün hatırlatma metinleri</li><li>Velisi olan adaylar ayrı işaretli</li><li>Mesaj, siz onaylayınca gönderilir</li></ul>
+      <span class="ornek">Görünüm örnektir; gerçek kişi verisi içermez.</span>
+    </aside>
+  </div>
+
+  <div class="sekme-ic" id="s2" role="tabpanel">
+    <div class="panel">
+      <div class="bar"><i></i><i></i><i></i><b>Kanal performansı · Ekim</b><span class="sag">Örnek veri</span></div>
+      <div class="ic" style="padding:6px 8px 12px">
+        <table class="tablo">
+          <tr><th>Kanal</th><th>Aday</th><th class="gizle">Ort. dönüş</th><th>Görüşme</th><th>Kayıt</th><th class="gizle">Aday başı maliyet</th></tr>
+          <tr><td>Instagram reklam</td><td>124</td><td class="gizle">1 sa 40 dk</td><td>52</td><td>16</td><td class="gizle">₺210</td></tr>
+          <tr><td>Google arama</td><td>78</td><td class="gizle">55 dk</td><td>41</td><td>15</td><td class="gizle">₺265</td></tr>
+          <tr><td>Web formu</td><td>56</td><td class="gizle">2 sa 10 dk</td><td>24</td><td>8</td><td class="gizle">—</td></tr>
+          <tr><td>WhatsApp</td><td>38</td><td class="gizle">18 dk</td><td>17</td><td>5</td><td class="gizle">—</td></tr>
+          <tr><td>Tavsiye</td><td>16</td><td class="gizle">35 dk</td><td>7</td><td>2</td><td class="gizle">—</td></tr>
+        </table>
+        <div class="cubuk"><div style="height:52%"><span>1. hafta</span></div><div style="height:64%"><span>2. hafta</span></div><div style="height:81%"><span>3. hafta</span></div><div style="height:100%"><span>4. hafta</span></div></div>
+      </div>
+    </div>
+    <aside>
+      <h3>Rapor ajanı</h3>
+      <p>Hangi kanalın gerçekten kayıt getirdiğini gösterir; bütçenizi tahmine değil ölçüme göre yönetirsiniz.</p>
+      <ul><li>Haftalık özet, aylık yönetim raporu</li><li>Kanal başına aday, dönüş süresi, kayıt</li><li>Aday başı maliyet ve öneri</li><li>Kaynağı bilinmeyen kayıt ayrı gösterilir</li></ul>
+      <span class="ornek">Sayılar örnektir.</span>
+    </aside>
+  </div>
+
+  <div class="sekme-ic" id="s3" role="tabpanel">
+    <div class="panel">
+      <div class="bar"><i></i><i></i><i></i><b>İçerik takvimi · 13–19 Ekim</b><span class="sag">Örnek veri</span></div>
+      <div class="ic">
+        <div class="takvim">
+          <div class="gun"><h6>Pzt</h6><div class="ici t-reels"><b>Reels</b>Atölyeden 30 sn: ilk desen dersi</div><div class="ici t-hik"><b>Hikâye</b>Cumartesi tanışma dersi</div></div>
+          <div class="gun"><h6>Sal</h6><div class="ici t-kar"><b>Galeri</b>Portfolyo nasıl hazırlanır? 6 adım</div></div>
+          <div class="gun"><h6>Çar</h6><div class="ici t-rek"><b>Reklam</b>İç Mimarlık · erken kayıt</div><div class="ici t-hik"><b>Hikâye</b>Öğrenci işleri soru-cevap</div></div>
+          <div class="gun"><h6>Per</h6><div class="ici t-reels"><b>Reels</b>Mezun hikâyesi: sınavdan atölyeye</div></div>
+          <div class="gun"><h6>Cum</h6><div class="ici t-kar"><b>Galeri</b>Haftanın öğrenci işleri</div></div>
+          <div class="gun"><h6>Cmt</h6><div class="ici t-hik"><b>Canlı</b>Tanışma dersi · 11:00</div></div>
+          <div class="gun"><h6>Paz</h6><div class="ici t-reels"><b>Reels</b>Moda tasarımı: kumaştan kalıba</div></div>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><span class="rozet r-y">3 gönderi onayınızı bekliyor</span><span class="rozet r-g">4 gönderi onaylandı</span></div>
+      </div>
+    </div>
+    <aside>
+      <h3>İçerik ajanı</h3>
+      <p>Kurumunuzun diliyle haftalık içerik planı ve paylaşım metinleri hazırlar; hiçbir şey onaysız yayına çıkmaz.</p>
+      <ul><li>Haftalık takvim ve metinler</li><li>Kısa video ve görsel taslakları</li><li>Reklam metni varyasyonları</li><li>Onay kutusundan tek tıkla onay</li></ul>
+      <span class="ornek">İçerik başlıkları örnektir.</span>
+    </aside>
+  </div>
+
+  <div class="sekme-ic" id="s4" role="tabpanel">
+    <div class="panel">
+      <div class="bar"><i></i><i></i><i></i><b>Denetim kaydı · bugün</b><span class="sag">Örnek veri</span></div>
+      <div class="ic" style="padding:6px 8px 10px">
+        <table class="tablo">
+          <tr><th>Saat</th><th>Ajan</th><th>İşlem</th><th class="gizle">Onay</th><th class="gizle">Kayıt özeti</th></tr>
+          <tr><td class="saat">08:00</td><td>Karşılama</td><td>Günlük liste üretildi (6 aday)</td><td class="gizle"><span class="rozet r-g">Gerekmez</span></td><td class="gizle ozet">a91f…c204</td></tr>
+          <tr><td class="saat">08:02</td><td>Karşılama</td><td>3 hatırlatma metni hazırlandı</td><td class="gizle"><span class="rozet r-y">Bekliyor</span></td><td class="gizle ozet">5d0e…77ab</td></tr>
+          <tr><td class="saat">09:14</td><td>Yetkili</td><td>2 mesaj onaylandı</td><td class="gizle"><span class="rozet r-g">Onaylandı</span></td><td class="gizle ozet">e3c8…1f90</td></tr>
+          <tr><td class="saat">10:30</td><td>İçerik</td><td>Çarşamba reklam metni (3 varyasyon)</td><td class="gizle"><span class="rozet r-y">Bekliyor</span></td><td class="gizle ozet">07b2…d61e</td></tr>
+          <tr><td class="saat">11:05</td><td>Rapor</td><td>Haftalık özet hazırlandı</td><td class="gizle"><span class="rozet r-g">Gerekmez</span></td><td class="gizle ozet">c4aa…93f1</td></tr>
+        </table>
+      </div>
+    </div>
+    <aside>
+      <h3>Her işlemin izi</h3>
+      <p>Kim, neyi, ne zaman ve kimin onayıyla yaptı: her satır sonradan değiştirilemeyen bir kayıt defterine yazılır.</p>
+      <ul><li>Onay bekleyen ve onaylanan işler ayrı</li><li>Her kaydın parmak izi tutulur</li><li>Kayıt silinemez, değiştirilemez</li><li>Aylık denetim raporu</li></ul>
+      <span class="ornek">Kayıtlar örnektir.</span>
+    </aside>
+  </div>
+</div></section>
+
+<section id="kanit" class="kanit"><div class="kap">
+  <div class="ust-etiket belir">Kanıt</div>
+  <h2 class="belir">Önce kendi işimizde kullandık.</h2>
+  <p class="giris belir">İlk müşteri kurulumlarımız 2026 sonbaharında başlıyor. Bu yüzden size bir referans listesi değil, kendiniz denetleyebileceğiniz bir şey gösteriyoruz: aynı altyapıyla yönettiğimiz kendi işimiz.</p>
+  <div class="kanit-iz">
+    <div class="kanit-k belir"><b class="sayi">4</b><h3>Kanal, gece gündüz yayında</h3><p>Aura Sonic'in Türkçe, Global Hits, Latino ve Global Slow radyoları YouTube'da kesintisiz yayın yapıyor. Program akışı, kapak, başlık ve arıza takibi bu altyapıyla yürüyor.</p><a href="https://www.aurasonicofficial.com" target="_blank" rel="noopener" id="radyoBag">Canlı yayınları açın →</a></div>
+    <div class="kanit-k belir"><b class="sayi">2.415</b><h3>Eser, tek tek kayıtlı</h3><p>Kataloğumuzdaki her eserin parmak izi alınır; listenin tamamı Bitcoin blok zincirine zaman damgasıyla işlenir. Sahipliği kimseye güvenmeden herkes doğrulayabilir.</p><a href="https://www.aurasonicofficial.com/telif.html" target="_blank" rel="noopener">Telif kayıt sayfası →</a></div>
+    <div class="kanit-k belir"><b class="sayi">5.000+</b><h3>İşlem, silinemez defterde</h3><p>23 Ağustos 2026'dan beri ajanların ve yöneticilerin her işlemi kayıt altında. Kayıt silmek ya da değiştirmek teknik olarak engelli; bu engel 12 Ekim 2026'da denenerek doğrulandı.</p><a href="#guvence">Güvence düzeni →</a></div>
+  </div>
+  <div class="deger belir">
+    <div><h3 style="font-size:34px">Söylenene değil, kanıta dayanır.</h3><p style="margin-top:12px">Eksik bilgiyi sorgular, gerekli belgeyi ister, planı ve sonucu karşılaştırır. Görevleri tamamlandı varsaymak yerine doğrulanabilir çıktılar ve izlenebilir karar kayıtları sunmayı hedefler.</p></div>
+    <div class="vurgu">Sorular sorar.<br>Kanıt ister.<br>İnsan onayıyla ilerler.</div>
+  </div>
+  <p class="durust belir">Burada müşteri logosu, "yüzde şu kadar artış" gibi bir oran ya da referans cümlesi görmeyeceksiniz; çünkü henüz yayımlayabileceğimiz ölçülmüş bir müşteri sonucumuz yok. Olduğunda, müşterinin yazılı izniyle ve ölçüm yöntemiyle birlikte burada yer alacak.</p>
+</div></section>
+
+<section id="guvence"><div class="kap">
+  <div class="ust-etiket belir">Güvence</div>
+  <h2 class="belir">Yetki vermek, kontrolü bırakmak değildir.</h2>
+  <p class="giris belir">Her ilkenin karşısında bugünkü gerçek durumu yazıyor. "Kurulu" dediğimiz, çalışan ve denenmiş olandır.</p>
+  <table class="gtablo belir">
+    <tr><th>İlke</th><th>Nasıl sağlanıyor</th><th>Durum</th></tr>
+    <tr><td><b>Son söz sizde</b></td><td><span>Müşteriye giden mesaj, yayın, ödeme ve erişim değişikliği gibi kritik adımlar onayınız olmadan tamamlanmaz.</span></td><td class="dk"><span class="durum d-var">Çalışma kuralı</span></td></tr>
+    <tr><td><b>Her işlem kayıtlı</b></td><td><span>Kim, neyi, ne zaman, kimin onayıyla yaptı. Kayıt defterinde silme ve değiştirme teknik olarak engelli.</span></td><td class="dk"><span class="durum d-var">Kurulu</span></td></tr>
+    <tr><td><b>Ajan kendi yetkisini artıramaz</b></td><td><span>Yönetici ajanların kimliği ve yetkisi, iki insan yöneticinin onayı olmadan değiştirilemez.</span></td><td class="dk"><span class="durum d-var">Kurulu</span></td></tr>
+    <tr><td><b>Kanıtsız başarı yok</b></td><td><span>"Yapıldı" demek için çıktı, kayıt ve doğrulama gerekir. Her ajan canlıya çıkmadan deneme ortamında ölçütü geçer.</span></td><td class="dk"><span class="durum d-var">Kurulu</span></td></tr>
+    <tr><td><b>Hesaplarınız sizde</b></td><td><span>Site, sosyal medya ve reklam hesapları kurumunuz adına kalır; bize adlı ve sınırlı erişim verilir, iş bitince kapatılır.</span></td><td class="dk"><span class="durum d-var">Çalışma kuralı</span></td></tr>
+    <tr><td><b>Size özel alan</b></td><td><span>Her müşterinin verisi, hafızası ve anahtarları ayrı tutulur; başka müşteriyle paylaşılmaz.</span></td><td class="dk"><span class="durum d-pilot">İlk kurulumla devrede</span></td></tr>
+    <tr><td><b>İş bitince durur</b></td><td><span>Ajan kendine görev üretmez; verilen iş bitince bekleme moduna geçer, yeni iş için yetkili onayı bekler.</span></td><td class="dk"><span class="durum d-pilot">Geliştiriliyor</span></td></tr>
+    <tr><td><b>Bağımsız zaman damgası</b></td><td><span>Kayıt defterinin günlük özetinin, eser kataloğumuzda kullandığımız yöntemle blok zincirine işlenmesi.</span></td><td class="dk"><span class="durum d-yol">Yol haritası</span></td></tr>
+  </table>
+  <div class="veri">
+    <div class="kart belir"><h4>Kişisel veriler</h4><h3>Veri sizin, sorumluluk paylaşılmış</h3><p>Aday ve müşteri verilerinizde veri sorumlusu sizsiniz; biz yazılı bir veri işleme çerçevesiyle, yalnız iş için gereken kadarını işleriz.</p></div>
+    <div class="kart belir"><h4>Yapay zekâ modelleri</h4><h3>Veriniz model eğitmez</h3><p>Verileriniz başka müşterilerin işinde ya da bir yapay zekâ modelini eğitmek için kullanılmaz. Hangi modelin hangi işte kullanıldığı raporda yazar.</p></div>
+    <div class="kart belir"><h4>Ayrılırken</h4><h3>Her şey sizde kalır</h3><p>Hesaplar, sayfalar, başvuru kayıtları ve raporlar kurumunuzda kalır. Erişimlerimiz kapatılır, kapatıldığı tutanakla bildirilir.</p></div>
+  </div>
+  <p class="not belir">Ayrıntı için <a href="gizlilik.html">Gizlilik ve kişisel veriler</a> sayfasına bakın.</p>
+</div></section>
+
+<section id="moduller" class="ayrac"><div class="kap">
+  <div class="ust-etiket belir">Modüller</div>
+  <h2 class="belir">Çözümlerin altındaki yirmi dört modül.</h2>
+  <p class="giris belir">Core tek parça bir yazılım değildir; birbirine bağlanan modüllerden oluşur. İhtiyacınız olanla başlar, gerisini sonra eklersiniz. Her modülün yanında bugünkü gerçek durumu yazar.</p>
+  <div class="aciklama belir" style="margin-top:26px"><span><span class="durum d-var">Sunuluyor</span> bugün kurulabilir</span><span><span class="durum d-kul">Kullanımda</span> kendi işimizde çalışıyor, size uyarlanır</span><span><span class="durum d-pilot">Pilot</span> çekirdeği denendi</span><span><span class="durum d-yol">Yol haritası</span> hedef; satışta değil</span></div>
+  <details class="tum-moduller belir"><summary>24 modülün tamamını gör</summary>
+  <div class="mgrup belir"><h3>Müşteri kazanımı</h3><span>Doğru kişiyi bulmak, başvuruya çevirmek, takip etmek.</span></div>
+  <div class="moduller">
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 01</span><span class="durum d-var">Sunuluyor</span></div><h3>Başvuru hattı</h3><p>Reklamı ve içeriği gören kişinin tek dokunuşla başvurduğu sayfa ve form düzeni.</p><ul><li>Programa / hizmete özel başvuru sayfası</li><li>Kısa form, WhatsApp ve arama düğmeleri</li><li>Her başvuruya numara, saat ve kaynak</li></ul></div>
+    <div class="modul one belir"><div class="ust"><span class="kod">Modül 02</span><span class="durum d-var">Sunuluyor</span></div><h3>Reklam</h3><p>Bütçeyi beğeniye değil sonuca bağlar: her kampanyanın getirdiği başvuru ve kayıt izlenir.</p><ul><li>Instagram / Facebook ve Google Arama kurulumu</li><li>Reklama kaynak etiketi, haftalık bütçe önerisi</li><li>Başvuru başı ve kayıt başı maliyet</li></ul></div>
+    <div class="modul one belir"><div class="ust"><span class="kod">Modül 03</span><span class="durum d-var">Sunuluyor</span></div><h3>Sosyal medya</h3><p>Kurumunuzun diliyle düzenli içerik: plan, metin, kısa video kurgusu ve onay akışı.</p><ul><li>Haftalık içerik takvimi ve metinler</li><li>Ham çekimden Reels / Shorts kurgusu</li><li>Onaylamadığınız içerik yayına çıkmaz</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 04</span><span class="durum d-var">Sunuluyor</span></div><h3>Karşılama ve takip</h3><p>Gelen her başvurunun kimde, hangi aşamada olduğu bellidir; kimse unutulmaz.</p><ul><li>Tek aday / müşteri defteri</li><li>Her sabah “bugün dönülecekler” listesi</li><li>5. ve 10. gün hazır hatırlatma metinleri</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 05</span><span class="durum d-pilot">Pilot</span></div><h3>Yerel görünürlük</h3><p>Haritalarda ve yerel aramalarda bulunmak; yorumların düzenli toplanması.</p><ul><li>İşletme profili denetimi ve düzeni</li><li>Yorum isteme akışı (izinli)</li><li>Yerel arama sırası ölçümü</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 06</span><span class="durum d-pilot">Pilot</span></div><h3>E-posta bülteni</h3><p>İlgilenen ama henüz karar vermeyen kişilerle izinli, düzenli temas.</p><ul><li>Kayıt sayfası ve hoş geldin dizisi</li><li>Aylık bülten taslağı</li><li>Yalnız açık izin verenlere gönderim</li></ul></div>
+  </div>
+  <div class="mgrup belir"><h3>Üretim</h3><span>İçeriği, sunumu ve yayını çıkaran atölye.</span></div>
+  <div class="moduller">
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 07</span><span class="durum d-kul">Kullanımda</span></div><h3>Video ve görsel üretim</h3><p>Kısa video, kapak ve tanıtım görseli üretim hattı; yayınlarımızın arkasındaki düzen.</p><ul><li>Kısa video kurgusu, altyazı, kapak</li><li>Marka şablonları ve künye damgası</li><li>Yayın öncesi kalite ölçümü</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 08</span><span class="durum d-var">Sunuluyor</span></div><h3>Web sitesi</h3><p>Mevcut sitenizi yenilemeden güçlendirir; gerekiyorsa sade ve hızlı yeni sayfa kurar.</p><ul><li>Sayfa, form ve hız iyileştirmesi</li><li>Telefon ekranı ve erişilebilirlik denetimi</li><li>Ölçüm altyapısı (izinli)</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 09</span><span class="durum d-kul">Kullanımda</span></div><h3>Teklif ve sunum</h3><p>Keşiften teklife: metraj, kapsam, fiyat tablosu ve müşteriye sunulacak dosya.</p><ul><li>Kapsam ve kapsam dışı açık yazılır</li><li>Kurumsal kimliğe uygun PDF / sunum</li><li>Rakamların dayanağı ayrıca tutulur</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 10</span><span class="durum d-kul">Kullanımda</span></div><h3>Yayın otomasyonu</h3><p>Kesintisiz yayın yapan kanallar için program akışı, paketleme ve arıza bekçileri.</p><ul><li>7/24 yayın ve otomatik program akışı</li><li>Başlık, kapak, açıklama düzeni</li><li>Kesinti ve arıza uyarıları</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 11</span><span class="durum d-var">Sunuluyor</span></div><h3>Radyo ve sponsorluk</h3><p>Aura Sonic'in 7/24 yayınlarında marka görünürlüğü ve markaya özel ses.</p><ul><li>Radyo yayınında sponsor yerleşimi</li><li>Markaya özel cıngıl / tanıtım sesi</li><li>Yayın sonrası gösterim raporu</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 12</span><span class="durum d-kul">Kullanımda</span></div><h3>Çok dilli içerik</h3><p>Aynı içeriğin Türkçe, İngilizce ve İspanyolca sürümleri; yayınlarımızda her gün kullanılan düzen.</p><ul><li>Başlık, açıklama ve sayfa metinleri</li><li>Dile göre ayrı yayın ve kitle</li><li>Anlamı koruyan uyarlama, kelime çevirisi değil</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 13</span><span class="durum d-kul">Kullanımda</span></div><h3>Oyun ve etkileşimli hikâye</h3><p>Markanızın dünyasını oynanır kılan seçimli hikâye oyunları; kendi oyunumuz KULİS böyle yapıldı.</p><ul><li>Senaryo, görsel ve müzik tek pakette</li><li>Tarayıcıda çalışır, kurulum istemez, iki dilli</li><li>Oynanma ve seçim ölçümü</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 14</span><span class="durum d-var">Sunuluyor</span></div><h3>Müzik ve ses üretimi</h3><p>Markaya özel müzik, cıngıl ve seslendirme; 2.400'den fazla eserlik kataloğun arkasındaki atölye.</p><ul><li>Markaya özel cıngıl ve tanıtım müziği</li><li>Seslendirme ve anons</li><li>Eser sahipliği kayıt altında teslim</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 15</span><span class="durum d-kul">Kullanımda</span></div><h3>Mimari görselleştirme</h3><p>Projeyi yapılmadan gösteren görsel ve sunum; mimarlık ofisimizin günlük işi.</p><ul><li>Üç boyutlu model ve görsel</li><li>Müşteri sunumu ve seçenek karşılaştırması</li><li>Mimari karar her zaman mimarda</li></ul></div>
+  </div>
+  <div class="mgrup belir"><h3>Yönetim ve güvence</h3><span>Kararı kanıta, işi kayda bağlayan zemin.</span></div>
+  <div class="moduller">
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 16</span><span class="durum d-var">Sunuluyor</span></div><h3>Raporlama</h3><p>Haftalık özet ve aylık yönetim raporu; her rakamın kaynağı gösterilir.</p><ul><li>Başvuru → görüşme → sonuç tablosu</li><li>Kanal ve program bazında döküm</li><li>90 günlük sonuç dosyası</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 17</span><span class="durum d-var">Sunuluyor</span></div><h3>Araştırma ve rakip analizi</h3><p>Karar öncesi ölçüm: sitenizin, başvuru yolunuzun ve rakiplerinizin gerçek durumu.</p><ul><li>Mevcut durum ve rakip ölçümü</li><li>Arama ve dizin görünürlüğü</li><li>Ölçülemeyen ayrıca belirtilir</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 18</span><span class="durum d-kul">Kullanımda</span></div><h3>Kurum hafızası</h3><p>Kurallar, kararlar ve iş geçmişi kişide değil kurumda kalır; iş kaldığı yerden sürer.</p><ul><li>Karar ve kural kaydı</li><li>Yeni dönemde kaldığı yerden devam</li><li>Model değişse de kayıt yerinde</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 19</span><span class="durum d-kul">Kullanımda</span></div><h3>Telif ve belge kaydı</h3><p>Eser, tasarım ve belgelerin “şu tarihte vardı” kanıtı: parmak izi + bağımsız zaman damgası.</p><ul><li>Dosya başına parmak izi</li><li>Blok zincirine işlenen zaman damgası</li><li>Herkesin doğrulayabildiği kayıt</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 20</span><span class="durum d-kul">Kullanımda</span></div><h3>İzleme ve uyarı</h3><p>Sistemlerin ayakta olduğunu izleyen bekçiler: bir şey durduğunda siz fark etmeden haber verir.</p><ul><li>Yayın, site ve servis bekçileri</li><li>Sessiz arıza ve kota uyarıları</li><li>Olay kaydı ve günlük özet</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 21</span><span class="durum d-var">Kurulu</span></div><h3>Onay ve denetim</h3><p>Bütün modüllerin altındaki zemin: kim, neyi, ne zaman, kimin onayıyla yaptı.</p><ul><li>Kritik adımlarda insan onayı</li><li>Silinemez, değiştirilemez işlem kaydı</li><li>Her modülle birlikte gelir</li></ul></div>
+  </div>
+  <div class="mgrup belir"><h3>Geliştirilenler</h3><span>Bugün satılmayan; denenmekte ya da planda olanlar.</span></div>
+  <div class="moduller">
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 22</span><span class="durum d-pilot">Pilot</span></div><h3>Eğitim asistanı</h3><p>Öğrencinin teknik çizimini kurallara göre denetleyen, hatayı gösteren asistan. Çizimi öğrenci yapar.</p><ul><li>Katman, ölçü, birim denetimi</li><li>Görsel önizleme</li><li>Son söz eğitmende</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 23</span><span class="durum d-yol">Yol haritası</span></div><h3>Sesli yönetici ajan</h3><p>Yazıyla başlattığınız işi sesle sürdürmek; aynı hafıza, aynı görev.</p><ul><li>Yazılı ve sesli çalışmada tek hafıza</li><li>Toplantıya katılan yönetici ajan</li><li>Hazır olduğunda duyurulacak</li></ul></div>
+    <div class="modul belir"><div class="ust"><span class="kod">Modül 24</span><span class="durum d-yol">Yol haritası</span></div><h3>Telefon asistanı</h3><p>İzin veren adayı arayan, randevu teyidi alan sesli asistan.</p><ul><li>Yalnız açık izinle arama</li><li>Görüşme özeti kayıt defterine</li><li>Hazır olduğunda duyurulacak</li></ul></div>
+  </div>
+  </details>
+  <p class="not belir">En sık başlangıç: başvuru hattı + reklam + karşılama ve takip; sosyal medya ve raporlama ikinci ayda eklenir. Hangi modülün size uygun olduğunu keşif görüşmesinde birlikte seçeriz.</p>
+</div></section>
+
+<section id="ekip" class="ayrac"><div class="kap">
+  <div class="ust-etiket belir">Yönetim ekibi</div>
+  <h2 class="belir">İki insan, iki yapay zekâ yönetici.</h2>
+  <p class="giris belir">Kararın sahibi her zaman insandır. Yönetici ajanlar strateji ve tekniği yürütür; uzman ajanlar görev bazlı ve sınırlı yetkiyle çalışır.</p>
+  <div class="ekip">
+    <div class="uye belir"><div class="foto"><img src="img/askin.jpg" alt="Mimar Aşkın Öztürk" loading="lazy" width="560" height="700"></div><div class="rol">Kurucu · son onay</div><h3>Aşkın Öztürk</h3><p>Mimar. Aşkın İnşaat Mimarlık Yapı'nın ve Aura Sonic'in kurucusu.</p><p class="gorev">Müşteri ilişkisi, kapsam ve fiyat; her projede son onay.</p></div>
+    <div class="uye belir"><div class="foto"><img src="img/banu.jpg" alt="Esin Banu Öztürk" loading="lazy" width="560" height="700"></div><div class="rol">Kurucu · son onay</div><h3>Esin Banu Öztürk</h3><p>Aura Sonic'in kurucu ortağı ve yapımcısı.</p><p class="gorev">Yönetişim, kalite ve marka; her projede son onay.</p></div>
+    <div class="uye belir"><div class="foto"><img src="img/orion.jpg" alt="Orion Mehmet — yapay zekâ yönetici ajan" loading="lazy" width="560" height="700"></div><div class="rol">Yapay zekâ yönetici ajan</div><h3>Orion Mehmet</h3><p>Strateji, iş geliştirme ve koordinasyon.</p><p class="gorev">Müşteri değeri, ticari doğruluk ve kabul ölçütleri.</p>
+      <button class="dinle" data-ses="ses/orion_karsilama.mp3" aria-label="Orion'un karşılama sesini dinleyin"><span class="oynat">▶</span>Orion'u dinleyin<span class="dalga"><i></i><i></i><i></i><i></i><i></i></span></button></div>
+    <div class="uye belir"><div class="foto"><img src="img/smiling.jpg" alt="Smiling Eyes — yapay zekâ yönetici ajan" loading="lazy" width="560" height="700"></div><div class="rol">Yapay zekâ yönetici ajan</div><h3>Smiling Eyes</h3><p>Teknik mimari, otomasyon ve güvenlik.</p><p class="gorev">Kurulum, test ve kalite denetimi.</p>
+      <button class="dinle" data-ses="ses/smiling_karsilama.mp3" aria-label="Smiling Eyes'ın karşılama sesini dinleyin"><span class="oynat">▶</span>Smiling'i dinleyin<span class="dalga"><i></i><i></i><i></i><i></i><i></i></span></button></div>
+  </div>
+  <p class="not belir">Orion Mehmet ve Smiling Eyes yapay zekâ yönetici ajanlarıdır; görselleri ve sesleri tasarlanmış karakterlerdir. İkisi eş düzeydir, birbirine emir vermez; nihai karar ve onay Aşkın Öztürk ile Esin Banu Öztürk'tedir. Sistemde 74 uzman ajan rolü tanımlıdır; bir rol deneme ortamında ölçütünü geçmeden müşteri işinde kullanılmaz.</p>
+  <p class="soz belir">"Teknolojiyi kullanmak için müşteri aramayacağız; müşteriye değer üretmek için doğru teknolojiyi kullanacağız."</p>
+</div></section>
+
+<section id="paketler" class="ayrac"><div class="kap">
+  <div class="ust-etiket belir">Paketler · Core Ajan · Core Ekip · Core Kurumsal</div>
+  <h2 class="belir">İhtiyacınız kadar ekip.</h2>
+  <p class="giris belir">Tek seferlik kurulum ve aylık işletme. Fiyat keşiften sonra, kapsamı ve kapsam dışını açıkça yazan bir teklifle verilir.</p>
+  <div class="paketler">
+    <div class="paket belir"><div class="etiket">Başlangıç</div><h3>Core Ajan</h3><p class="acik">Tek bir role odaklanan, size özel ajan.</p>
+      <ul><li>Keşif, kurulum ve eğitim</li><li>Deneme ortamında doğrulama</li><li>Aylık işletme ve bakım</li><li>Aylık rapor</li></ul>
+      <a class="dugme koyu kucuk" href="#iletisim">Teklif isteyin</a></div>
+    <div class="paket one belir"><div class="etiket">Önerilen</div><h3>Core Ekip</h3><p class="acik">Birlikte çalışan, rol bazlı ajan ekibi.</p>
+      <ul><li>2–5 rol: karşılama, içerik, rapor…</li><li>Ortak iş akışı ve onay kutusu</li><li>Haftalık özet, aylık iyileştirme</li><li>90 günlük pilot ve sonuç dosyası</li></ul>
+      <a class="dugme altin kucuk" href="#iletisim">Teklif isteyin</a></div>
+    <div class="paket belir"><div class="etiket">Kurumsal</div><h3>Core Kurumsal</h3><p class="acik">Çok departmanlı yapı ve entegrasyon.</p>
+      <ul><li>Departman başına ajan ekipleri</li><li>Yazılım ve veri entegrasyonları</li><li>Yönetişim ve denetim raporu</li><li>Kapsamı birlikte tasarlanır</li></ul>
+      <a class="dugme koyu kucuk" href="#iletisim">Görüşme planlayın</a></div>
+  </div>
+  <div class="veri" style="margin-top:22px">
+    <div class="kart belir"><h4>Fiyatı ne belirler</h4><p>Rol sayısı, aylık içerik ve rapor yükü, bağlanacak sistemler ve sizin tarafınızdaki onay hızı. Teklifte hepsi kalem kalem yazar.</p></div>
+    <div class="kart belir"><h4>Fiyata dahil olmayan</h4><p>Reklam harcamaları (doğrudan platforma ödersiniz; aracılık payı almayız), yerinde çekim, ücretli yazılım lisansları ve hukuki metinlerin onayı.</p></div>
+    <div class="kart belir"><h4>Süre ve çıkış</h4><p>İlk dönem 90 günlük pilottur. Dönem sonunda devam, kapsam değişikliği ya da çıkış kararını ölçülmüş sonuçla birlikte siz verirsiniz.</p></div>
+  </div>
+</div></section>
+
+<section id="sss" class="ayrac"><div class="kap" style="max-width:920px">
+  <div class="ust-etiket belir">Sık sorulan sorular</div>
+  <h2 class="belir">Merak edilenler</h2>
+  <details class="belir"><summary>"Süper Zekâ" ne demek? İnsanüstü bir yapay zekâ mı?</summary><p>Hayır. "Süper Zekâ Çalışma Sistemi" bir marka adıdır: birçok uzman ajanın tek koordinasyonla, insan denetiminde çalışmasını anlatır. İnsanüstü genel zekâ, sınırsız özerklik ya da hatasız karar gibi bir iddiamız yoktur.</p></details>
+  <details class="belir"><summary>Bu bir sohbet botu mu?</summary><p>Hayır. Her ajan tek bir role odaklanır (karşılama, içerik, rapor gibi) ve sizin kurallarınızla çalışır. Ekip; onay kutusu ve kayıt defteriyle birlikte yönetilir.</p></details>
+  <details class="belir"><summary>Ajan bizim adımıza müşteriye mesaj gönderir mi?</summary><p>Mesajı hazırlar; gönderim sizin belirlediğiniz onay düzenine göre olur. İzinsiz toplu mesaj gönderilmez. Kritik adımlar insan onayı olmadan tamamlanmaz.</p></details>
+  <details class="belir"><summary>Verilerimiz nerede durur, başkası görebilir mi?</summary><p>Hesaplarınız ve başvuru kayıtlarınız kurumunuzun adına kalır. Her müşteri için ayrı alan düzeni ilk müşteri kurulumlarımızla devreye giriyor; bu ayrım kurulmadan müşteri verisi işlenmez. Veriniz başka müşteride ya da model eğitiminde kullanılmaz.</p></details>
+  <details class="belir"><summary>KVKK açısından sorumluluk kimde?</summary><p>Kendi müşteri ve aday verilerinizde veri sorumlusu sizsiniz; biz veri işleyen olarak yazılı bir çerçeveyle çalışırız. Aydınlatma, açık rıza ve çerez metinlerini kurumunuzun hukuk danışmanı onaylar; biz teknik tarafını kurarız.</p></details>
+  <details class="belir"><summary>Ne kadar sürede kurulur?</summary><p>Tek rollü bir kurulum, erişimler verildikten sonra yaklaşık iki haftada deneme ortamına çıkar; kabul testlerini geçince canlıya alınır. Süre imzadan değil, erişimlerin tesliminden sayılır.</p></details>
+  <details class="belir"><summary>Bizden ne gerekir?</summary><p>Başvuruları karşılayacak bir yetkili ve yedeği; mevcut site, sosyal medya ve reklam hesaplarına sınırlı erişim; içerik onayı için haftada kısa bir zaman. Sonuçları ölçebilmemiz için kesinleşen satış ya da kayıtların işaretlenmesi şarttır.</p></details>
+  <details class="belir"><summary>Sonuç garantisi veriyor musunuz?</summary><p>Hayır; satış ya da kayıt sayısı garantisi vermeyiz. Verdiğimiz söz yöntemdir: ölçüt baştan yazılır, ilk ay gerçek başlangıç değerleri ölçülür, her ay rapor edilir ve 90. günde devam kararı ölçülmüş sonuçla verilir.</p></details>
+  <details class="belir"><summary>Ajan hata yaparsa ne olur?</summary><p>Kritik adımlar onayınızdan geçtiği için hata müşteriye ulaşmadan yakalanır. Her işlem kayıtlı olduğundan hatanın nerede doğduğu bulunur, düzeltilir ve aynı hata için denetim eklenir.</p></details>
+  <details class="belir"><summary>Hangi yapay zekâ modellerini kullanıyorsunuz? Bir sağlayıcıya bağlı mıyız?</summary><p>İşe göre farklı modeller kullanılır. Kimlik, hafıza, yetki ve iş geçmişi modelde değil Core'da tutulur; model değişse de kurallarınız ve kayıtlarınız yerinde kalır, ajan yeniden doğrulanır.</p></details>
+  <details class="belir"><summary>Mevcut yazılımlarımızla çalışır mı?</summary><p>Web sitesi, form, e-tablo, sosyal medya ve reklam hesaplarıyla çalışır. Özel yazılım bağlantıları keşifte incelenir ve teklifte ayrıca yazılır.</p></details>
+  <details class="belir"><summary>Fiyatlandırma nasıl? Reklam bütçesi dahil mi?</summary><p>Tek seferlik kurulum ve aylık işletme bedeli. Reklam bütçesi dahil değildir; doğrudan platforma siz ödersiniz, biz aracılık payı almayız. Rakam, keşiften sonra yazılı teklifle verilir.</p></details>
+  <details class="belir"><summary>Vazgeçersek ne olur?</summary><p>Hesaplar, sayfalar, başvuru kayıtları ve raporlar sizde kalır; erişimlerimiz kapatılır ve kapatıldığı size yazılı bildirilir. Sizi bir yazılıma ya da hesaba bağımlı bırakmayız.</p></details>
+</div></section>
+
+<section id="iletisim" style="padding-top:20px"><div class="kap">
+  <div class="cta belir">
+    <div>
+      <h2>İşletmenizin Potansiyelini Keşfedelim.</h2>
+      <p>İlk görüşme ücretsizdir ve bir satış sunumu değildir: işinizin bugün nasıl yürüdüğünü dinler, nerede işe yarayacağımızı ve nerede yaramayacağımızı açıkça söyleriz.</p>
+      <div class="bilgi">
+        <p style="color:#fff;font-weight:600">Aura Sonic Core</p>
+        <p>Aşkın İnşaat Mimarlık Yapı</p>
+        <p>Telefon / WhatsApp: <a href="tel:+905320606612">+90 532 060 66 12</a></p>
+        <p>E-posta: <a href="mailto:info@aurasonicofficial.co.uk">info@aurasonicofficial.co.uk</a></p>
+        <p>İsmetpaşa Mah. Burmalıçeşme Sok. 90/A, Dikili / İzmir</p>
+      </div>
+    </div>
+    <form class="kesif" id="kesif" novalidate>
+      <div class="iki">
+        <div><label for="f-ad">Adınız</label><input id="f-ad" name="ad" autocomplete="name" required></div>
+        <div><label for="f-kurum">Kurumunuz</label><input id="f-kurum" name="kurum" autocomplete="organization" required></div>
+      </div>
+      <div><label for="f-sektor">Sektör</label><select id="f-sektor" name="sektor"><option>Eğitim</option><option>Restoran ve kafe</option><option>Mimarlık ve yapı</option><option>Medya ve içerik</option><option>Sağlık</option><option>Perakende ve hizmet</option><option>Diğer</option></select></div>
+      <div><label for="f-ihtiyac">En çok hangi iş yükünüzü hafifletmek istersiniz?</label><textarea id="f-ihtiyac" name="ihtiyac" placeholder="Örneğin: gelen başvurulara zamanında dönemiyoruz; reklamın karşılığını ölçemiyoruz." required></textarea></div>
+      <div class="hata" id="f-hata" role="alert"></div>
+      <div class="yol">
+        <button class="dugme altin" type="submit" data-yol="wa">WhatsApp ile gönder</button>
+        <button class="dugme cizgi" type="submit" data-yol="eposta">E-posta ile gönder</button>
+      </div>
+      <small>Bu form yazdıklarınızı sitemizde saklamaz ve bir sunucuya göndermez. Düğmeye bastığınızda mesaj, kendi WhatsApp ya da e-posta uygulamanızda hazır açılır; göndermek sizin elinizdedir. <a href="gizlilik.html">Gizlilik ve kişisel veriler</a></small>
+    </form>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="kap">
+  <div class="ust">
+    <div><div class="flogo"><img src="img/logo.png" alt="Aura Sonic Core" width="617" height="132" loading="lazy"></div><p>Yönetilen yapay zekâ ajan hizmeti. Aşkın İnşaat Mimarlık Yapı tarafından sunulur.</p><p style="margin-top:10px">İsmetpaşa Mah. Burmalıçeşme Sok. 90/A, Dikili / İzmir</p><p><a href="tel:+905320606612">+90 532 060 66 12</a> · <a href="mailto:info@aurasonicofficial.co.uk">info@aurasonicofficial.co.uk</a></p></div>
+    <div><h5>Sayfa</h5><ul><li><a href="#kazanc">Ne kazandırır</a></li><li><a href="#moduller">Modüller</a></li><li><a href="#nasil">Nasıl çalışıyoruz</a></li><li><a href="#cozumler">Çözümler</a></li><li><a href="#kanit">Kanıt</a></li><li><a href="#guvence">Güvence</a></li><li><a href="#sss">Sık sorulan sorular</a></li></ul></div>
+    <div><h5>Kurumsal</h5><ul><li><a href="gizlilik.html">Gizlilik ve kişisel veriler</a></li><li><a href="https://www.aurasonicofficial.com/telif.html" target="_blank" rel="noopener">Telif ve eser sahipliği</a></li><li><a href="https://www.aurasonicofficial.com" target="_blank" rel="noopener">Aura Sonic</a></li></ul></div>
+  </div>
+  <div class="alt"><span>© 2026 Aura Sonic Core · Aşkın İnşaat Mimarlık Yapı</span><span>Son güncelleme: 2 Kasım 2026</span></div>
+</div></footer>
+
+<script>
+(function(){
+  if (/[?&]statik\b/.test(location.search)) document.documentElement.classList.add('statik');
+  var ust = document.getElementById('ust');
+  window.addEventListener('scroll', function(){ ust.classList.toggle('kaydi', window.scrollY > 8); }, {passive:true});
+  var md = document.getElementById('menuD'), menu = document.getElementById('menu');
+  md.addEventListener('click', function(){ var a = menu.classList.toggle('acik'); md.setAttribute('aria-expanded', a ? 'true' : 'false'); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('acik'); md.setAttribute('aria-expanded', 'false'); }); });
+  var g = document.querySelectorAll('.belir');
+  if (!('IntersectionObserver' in window)) { g.forEach(function(e){ e.classList.add('gorundu'); }); }
+  else { var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('gorundu'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -6% 0px'}); g.forEach(function(e){ io.observe(e); }); }
+
+  document.querySelectorAll('.ssek').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.ssek').forEach(function(x){ x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
+      document.querySelectorAll('.ssek-ic').forEach(function(x){ x.classList.toggle('acik', x.id === b.dataset.ss); });
+    });
+  });
+  document.querySelectorAll('.senaryo-d').forEach(function(a){
+    a.addEventListener('click', function(){
+      var sel = document.getElementById('f-sektor'), t = document.getElementById('f-ihtiyac');
+      if (sel) { for (var i = 0; i < sel.options.length; i++) if (sel.options[i].text === a.dataset.sektor) sel.selectedIndex = i; }
+      if (t && !t.value) t.value = a.dataset.ad + ' senaryosunu konuşmak istiyoruz. ';
+    });
+  });
+  document.querySelectorAll('.sekme').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.sekme').forEach(function(x){ x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
+      document.querySelectorAll('.sekme-ic').forEach(function(x){ x.classList.toggle('acik', x.id === b.dataset.s); });
+    });
+  });
+  var calan = null, cDugme = null;
+  function birak(b){ b.classList.remove('caliyor'); b.querySelector('.oynat').textContent = '▶'; }
+  document.querySelectorAll('.dinle').forEach(function(b){
+    b.addEventListener('click', function(){
+      if (calan && cDugme === b) { calan.pause(); calan = null; birak(b); return; }
+      if (calan) { calan.pause(); birak(cDugme); }
+      calan = new Audio(b.dataset.ses); cDugme = b;
+      b.classList.add('caliyor'); b.querySelector('.oynat').textContent = '❚❚';
+      calan.addEventListener('ended', function(){ birak(b); calan = null; });
+      calan.play().catch(function(){ birak(b); });
+    });
+  });
+  // Keşif formu: veri saklanmaz, sunucuya gitmez; ziyaretçinin kendi WhatsApp / e-posta uygulamasında hazır mesaj açar.
+  var f = document.getElementById('kesif'), hata = document.getElementById('f-hata'), yol = 'wa';
+  f.querySelectorAll('button[type=submit]').forEach(function(b){ b.addEventListener('click', function(){ yol = b.dataset.yol; }); });
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var ad = f.ad.value.trim(), kurum = f.kurum.value.trim(), ih = f.ihtiyac.value.trim();
+    if (!ad || !kurum || ih.length < 10) { hata.textContent = 'Lütfen adınızı, kurumunuzu ve ihtiyacınızı birkaç kelimeyle yazın.'; (!ad ? f.ad : !kurum ? f.kurum : f.ihtiyac).focus(); return; }
+    hata.textContent = '';
+    var metin = 'Merhaba, Aura Sonic Core için keşif görüşmesi istiyorum.\n\nAd: ' + ad + '\nKurum: ' + kurum + '\nSektör: ' + f.sektor.value + '\nİhtiyaç: ' + ih;
+    if (yol === 'wa') window.open('https://wa.me/905320606612?text=' + encodeURIComponent(metin), '_blank', 'noopener');
+    else location.href = 'mailto:info@aurasonicofficial.co.uk?subject=' + encodeURIComponent('Keşif görüşmesi — ' + kurum) + '&body=' + encodeURIComponent(metin);
+  });
+  fetch('https://www.aurasonicofficial.com/radyo.json', {cache:'no-store'}).then(function(r){ return r.json(); }).then(function(d){
+    var r = ((d && d.radios) || []).filter(function(x){ return x.id; }); if (!r.length) return;
+    document.querySelector('#canli span:last-child').innerHTML = 'Şu an yayında: ' + r.map(function(x){ return '<a href="https://www.youtube.com/watch?v=' + encodeURIComponent(x.id) + '" target="_blank" rel="noopener">' + ((x.n && x.n.tr) || x.k) + '</a>'; }).join(' · ');
+  }).catch(function(){});
+})();
+</script>
+<script>
+/* 21 Eki — #nasil kaydırma süreci: hat ilerler, 4. adımdaki onay kapısında bekler; o adıma gelince kilit açılır. */
+(function(){
+  var k = document.querySelector('.sc-nasil'); if (!k) return;
+  var az = window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('statik');
+  var ad = Array.prototype.slice.call(k.querySelectorAll('.nasil-liste .sadim')), dg = k.querySelectorAll('.np-dug');
+  var no = k.querySelector('.np-no'), isim = k.querySelector('.np-ad'), zx = document.querySelector('.zaman-ekseni'), KAPI = 3;
+  if (ad[KAPI]) ad[KAPI].classList.add('kapi-adim');
+  if (az) { k.style.setProperty('--p', 1); k.classList.add('kapi-acik'); ad.forEach(function(e){ e.classList.add('gecti'); }); return; }
+  k.classList.add('canli');
+  var son = -1, bek = 0;
+  function guncelle(){
+    bek = 0;
+    var vh = window.innerHeight, orta = vh * 0.48, en = 0, enD = 1e9;
+    ad.forEach(function(e, i){ var r = e.getBoundingClientRect(), d = Math.abs(r.top + r.height / 2 - orta); if (d < enD) { enD = d; en = i; } });
+    var r0 = ad[0].getBoundingClientRect(), r1 = ad[ad.length - 1].getBoundingClientRect();
+    var p = Math.max(0, Math.min(1, (orta - r0.top) / Math.max(1, r1.bottom - r0.top)));
+    var kapiP = KAPI / (ad.length - 1);
+    if (en < KAPI) p = Math.min(p, kapiP - 0.02);           // imza: onay adımına gelinmeden hat kapıyı geçmez
+    k.style.setProperty('--p', p.toFixed(4));
+    k.classList.toggle('kapi-acik', en >= KAPI);
+    if (en !== son) {
+      son = en;
+      ad.forEach(function(e, i){ e.classList.toggle('simdi', i === en); e.classList.toggle('gecti', i < en); });
+      Array.prototype.forEach.call(dg, function(d, i){ d.classList.toggle('simdi', i === en); d.classList.toggle('gecti', i < en); });
+      if (no) no.textContent = String(en + 1);
+      if (isim) isim.textContent = ad[en].querySelector('h3').textContent;
+    }
+    if (zx) { var z = zx.getBoundingClientRect(); zx.style.setProperty('--z', Math.max(0, Math.min(1, (vh * 0.92 - z.top) / (vh * 0.45))).toFixed(3)); }
+  }
+  function iste(){ if (!bek) { bek = 1; requestAnimationFrame(guncelle); } }
+  window.addEventListener('scroll', iste, {passive:true}); window.addEventListener('resize', iste); guncelle();
+})();
+</script>
+</body>
+</html>
